@@ -1,6 +1,5 @@
 package com.doubleBulkUp.User.entity;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
