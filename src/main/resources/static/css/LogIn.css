@@ -1,0 +1,75 @@
+#title {
+  margin-top: 75px;
+  text-align: center;
+  color: #efefef;
+  font-size: 60px;
+  font-weight: 530;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+#outerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#innerBox {
+  background-color: #292929;
+  padding: 30px 35px;
+  margin-top: 80px;
+  border: 2px solid rgb(113, 112, 112);
+  border-radius: 0.2em;
+}
+.set {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+b {
+  color: #efefef;
+  font-size: 13px;
+  text-align: left;
+}
+.info {
+  width: 250px;
+}
+input {
+  border-radius: 0.5rem;
+  width: 250px;
+  height: 35px;
+  font-size: 15px;
+}
+#loginBtn {
+  display: flex;
+  margin-top: 20px;
+  width: 250px;
+  justify-content: center;
+  background-color: #838383;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid #000000;
+  border-radius: 0.2em;
+  cursor: pointer;
+  padding: 10px 20px;
+  color: #e9e9e9;
+}
+#signupBtn {
+  background-color: #3b3b3b;
+  color: rgb(65, 65, 255);
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+#noId {
+  background-color: #3b3b3b;
+  padding: 10px 40px;
+  margin-top: 30px;
+  border: 1px solid rgb(89, 86, 86);
+  border-radius: 0.2em;
+}
+label {
+  color: #bebebe;
+  font-size: 13px;
+}

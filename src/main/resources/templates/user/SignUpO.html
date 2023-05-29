@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/SignUpO.css}" />
+  </head>
+  <body style="background-color: #1e1e1e">
+    <div id="goLogin">
+      <b id="already">Already have an account?</b>
+      <button id="loginBtn" onclick="location.href='LogIn.html' ">Login</button>
+    </div>
+    <div id="title">Sign Up</div>
+    <div id="type">-- GYM OWNER --</div>
+    <div class="register">
+      <b class="info">Create your ID</b>
+      <div class="inputBox">
+        <input id="newId" placeholder="ID" />
+      </div>
+    </div>
+    <div class="register">
+      <b class="info">Create your password</b>
+      <div class="inputBox">
+        <input id="newPw" type="password" placeholder="Password" />
+      </div>
+    </div>
+    <div class="register">
+      <b class="info">Enter your name</b>
+      <div class="inputBox">
+        <input id="newName" placeholder="Name" />
+      </div>
+    </div>
+    <div class="register">
+      <b class="info">Select your gender</b>
+      <div id="btn">
+        <input
+          type="radio"
+          name="genderBtn"
+          value="Male"
+          id="maleBtn"
+          checked="true"
+        />
+        <label for="maleBtn">Male</label>
+        <input type="radio" name="genderBtn" value="Female" id="femaleBtn" />
+        <label for="femaleBtn">Female</label>
+      </div>
+    </div>
+    <div class="register">
+      <b class="info">Enter your e-mail</b>
+      <div class="inputBox">
+        <input id="newEmail" placeholder="E-mail" />
+      </div>
+    </div>
+    <div class="register">
+      <b class="info">Enter your date of birth</b>
+      <div class="inputBox">
+        <input id="newBd" type="date" value="2023-06-24" />
+      </div>
+    </div>
+    <div class="register">
+      <b class="info">Enter your phone number</b>
+      <div class="inputBox">
+        <input id="newTel" type="tel" placeholder="xxx-xxxx-xxxx" />
+      </div>
+    </div>
+    <div class="register">
+      <b class="info">Enter the business registration number</b>
+      <div class="inputBox">
+        <input
+          id="newNum"
+          type="number"
+          placeholder="Buisiness Register Number"
+        />
+      </div>
+    </div>
+    <div class="register">
+      <b class="info">Enter your gym name</b>
+      <div class="inputBox">
+        <input id="newGym" placeholder="Gym name" />
+      </div>
+    </div>
+    <div id="complete">
+      <button id="completeBtn">Complete</button>
+    </div>
+  </body>
+</html>

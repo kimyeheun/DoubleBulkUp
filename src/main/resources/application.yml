@@ -1,0 +1,40 @@
+
+spring:
+  datasource:
+    username: root
+    password: 1212
+    url: jdbc:mysql://localhost:3306/healthDB
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  main:
+    allow-bean-definition-overriding: true
+  thymeleaf:
+    prefix: classpath:templates
+    check-template-location: true
+    suffix: .html
+    mode: HTML
+    cache: false
+    mvc:
+      static-path-pattern: "/static/**"
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    open-in-view: false
+    database: mysql
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+file:
+  upload:
+    location: D:\WorkSpace\DB Lecture\doubleBulkUp\src\main\resources\static\img
+
+sever:
+  servlet:
+    encoding:
+      fore-response: true
+
+
+
+

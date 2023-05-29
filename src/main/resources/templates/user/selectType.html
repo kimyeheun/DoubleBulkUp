@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>selectUserType</title>
+    <link rel="stylesheet" th:href="@{/css/selectType.css}" />
+  </head>
+  <body style="background-color: #1e1e1e">
+    <div id="goLogin">
+      <b id="already">Already have an account?</b>
+      <button class="btn" id="loginBtn" th:onclick="|location.href='@{/user/login}'|">
+        Login
+      </button>
+    </div>
+    <div id="title">Sign Up</div>
+    <div id="outerBox">
+      <button class="btn" id="general" th:onclick="|location.href='@{/user/general}'|">
+        General Member
+      </button>
+      <button class="btn" id="trainer" th:onclick="|location.href='@{/user/trainer}'|">
+        Trainer
+      </button>
+      <button class="btn" id="owner" th:onclick="|location.href='@{/user/ceo}'|">
+        Gym Owner
+      </button>
+    </div>
+  </body>
+</html>
