@@ -1,4 +1,4 @@
-package com.doubleBulkUp.User.entity;
+package com.doubleBulkUp.user.entity;
 
 import lombok.Getter;
 

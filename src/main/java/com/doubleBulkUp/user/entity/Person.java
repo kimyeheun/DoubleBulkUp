@@ -1,4 +1,4 @@
-package com.doubleBulkUp.User.entity;
+package com.doubleBulkUp.user.entity;
 
 
 import lombok.Getter;
@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @DiscriminatorColumn
 public class Person {
     @Id
+    @Column(name = "personId")
     private String personId;
 
     private String userPassword;

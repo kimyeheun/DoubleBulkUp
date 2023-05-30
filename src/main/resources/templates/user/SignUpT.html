@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,69 +10,72 @@
   <body style="background-color: #1e1e1e">
     <div id="goLogin">
       <b id="already">Already have an account?</b>
-      <button id="loginBtn" onclick="location.href='LogIn.html' ">Login</button>
+      <button id="loginBtn" th:onclick="|location.href='@{/user/login}'|">Login</button>
     </div>
     <div id="title">Sign Up</div>
     <div id="type">-- TRAINER --</div>
-    <div class="register">
-      <b class="info">Create your ID</b>
-      <div class="inputBox">
-        <input id="newId" placeholder="ID" />
+    <form th:action="@{/user/trainer}" action="/user/trainer" th:object="${trainer}" method="post">
+      <div class="register">
+        <b class="info">Create your ID</b>
+        <div class="inputBox">
+          <input th:field="*{trainerId}" id="newId" placeholder="ID" />
+        </div>
       </div>
-    </div>
-    <div class="register">
-      <b class="info">Create your password</b>
-      <div class="inputBox">
-        <input id="newPw" type="password" placeholder="Password" />
+      <div class="register">
+        <b class="info">Create your password</b>
+        <div class="inputBox">
+          <input th:field="*{password}" id="newPw" type="password" placeholder="Password" />
+        </div>
       </div>
-    </div>
-    <div class="register">
-      <b class="info">Enter your name</b>
-      <div class="inputBox">
-        <input id="newName" placeholder="Name" />
+      <div class="register">
+        <b class="info">Enter your name</b>
+        <div class="inputBox">
+          <input th:field="*{trainerName}" id="newName" placeholder="Name" />
+        </div>
       </div>
-    </div>
-    <div class="register">
-      <b class="info">Select your gender</b>
-      <div id="btn">
-        <input
-          type="radio"
-          name="genderBtn"
-          value="Male"
-          id="maleBtn"
-          checked="true"
-        />
-        <label for="maleBtn">Male</label>
-        <input type="radio" name="genderBtn" value="Female" id="femaleBtn" />
-        <label for="femaleBtn">Female</label>
+      <div class="register">
+        <b class="info">Select your gender</b>
+        <div th:each="type : ${gender}" class="form-check form-check-inline" id="btn">
+          <input
+            type="radio"
+            name="genderBtn"
+            th:field="*{gender}"
+            th:value="${type.name()}"
+            class="form-check-input">
+          <label
+            th:for="${#ids.prev('gender')}"
+            th:text="${type.value}"
+            class="form-check-label">
+            MALE</label>
+        </div>
       </div>
-    </div>
-    <div class="register">
-      <b class="info">Enter your e-mail</b>
-      <div class="inputBox">
-        <input id="newEmail" placeholder="E-mail" />
+      <div class="register">
+        <b class="info">Enter your e-mail</b>
+        <div class="inputBox">
+          <input th:field="*{trainerEmail}" id="newEmail" placeholder="E-mail" />
+        </div>
       </div>
-    </div>
-    <div class="register">
-      <b class="info">Enter your date of birth</b>
-      <div class="inputBox">
-        <input id="newBd" type="date" value="2023-06-24" />
+      <div class="register">
+        <b class="info">Enter your date of birth</b>
+        <div class="inputBox">
+          <input th:field="*{trainerBirth}" id="newBd" type="date" value="2023-06-24" />
+        </div>
       </div>
-    </div>
-    <div class="register">
-      <b class="info">Enter your phone number</b>
-      <div class="inputBox">
-        <input id="newTel" type="tel" placeholder="xxx-xxxx-xxxx" />
+      <div class="register">
+        <b class="info">Enter your phone number</b>
+        <div class="inputBox">
+          <input th:field="*{trainerPhone}" id="newTel" type="tel" placeholder="xxx-xxxx-xxxx" />
+        </div>
       </div>
-    </div>
-    <div class="register">
-      <b class="info">Enter your gym name</b>
-      <div class="inputBox">
-        <input id="newGym" placeholder="Gym name" />
+      <div class="register">
+        <b class="info">Enter your gym name</b>
+        <div class="inputBox">
+          <input th:field="*{gymName}" id="newGym" placeholder="Gym name" />
+        </div>
       </div>
-    </div>
-    <div id="complete">
-      <button id="completeBtn">Complete</button>
-    </div>
+      <div id="complete">
+        <button id="completeBtn" type="submit">Complete</button>
+      </div>
+    </form>
   </body>
 </html>

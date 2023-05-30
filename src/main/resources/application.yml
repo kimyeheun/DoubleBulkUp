@@ -3,7 +3,7 @@ spring:
   datasource:
     username: root
     password: 1212
-    url: jdbc:mysql://localhost:3306/healthDB
+    url: jdbc:mysql://localhost:3306/health
     driver-class-name: com.mysql.cj.jdbc.Driver
   main:
     allow-bean-definition-overriding: true
@@ -15,20 +15,20 @@ spring:
     cache: false
     mvc:
       static-path-pattern: "/static/**"
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+
 
   jpa:
-    hibernate:
-      ddl-auto: create-drop
     show-sql: true
     open-in-view: false
     database: mysql
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-
-file:
-  upload:
-    location: D:\WorkSpace\DB Lecture\doubleBulkUp\src\main\resources\static\img
 
 sever:
   servlet:

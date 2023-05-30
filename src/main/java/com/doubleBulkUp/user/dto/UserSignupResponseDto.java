@@ -1,4 +1,4 @@
-package com.doubleBulkUp.User.dto;
+package com.doubleBulkUp.user.dto;
 
 import lombok.Builder;
 import lombok.Getter;

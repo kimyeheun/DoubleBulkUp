@@ -1,9 +1,9 @@
-package com.doubleBulkUp.User.entity;
+package com.doubleBulkUp.user.entity;
 
 import javax.persistence.Entity;
 
 @Entity
 public class Ceo extends Person{
-    private String ceoRegistrationNum; //사업자 등록 번호
+    private String ceoRegistrationNum;
     private String gymName;
 }

@@ -1,7 +1,7 @@
-package com.doubleBulkUp.User.dto;
+package com.doubleBulkUp.user.dto;
 
-import com.doubleBulkUp.User.entity.Gender;
-import com.doubleBulkUp.User.entity.Purpose;
+import com.doubleBulkUp.user.entity.Gender;
+import com.doubleBulkUp.user.entity.Purpose;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,10 +1,12 @@
-package com.doubleBulkUp.User.controller;
+package com.doubleBulkUp.user.controller;
 
-import com.doubleBulkUp.User.dto.UserLoginDto;
-import com.doubleBulkUp.User.dto.UserSignupRequestDto;
-import com.doubleBulkUp.User.entity.Gender;
-import com.doubleBulkUp.User.entity.Purpose;
-import com.doubleBulkUp.User.service.UserService;
+import com.doubleBulkUp.user.dto.CeoSignupRequestDto;
+import com.doubleBulkUp.user.dto.TrainerSignupRequestDto;
+import com.doubleBulkUp.user.dto.UserLoginDto;
+import com.doubleBulkUp.user.dto.UserSignupRequestDto;
+import com.doubleBulkUp.user.entity.Gender;
+import com.doubleBulkUp.user.entity.Purpose;
+import com.doubleBulkUp.user.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,23 +47,38 @@ public class UserApiController {
         model.addAttribute("user", new UserSignupRequestDto());
         return "/user/SignUp";
     }
-
-
     @PostMapping("/general")
-    public String userSignUp(@ModelAttribute Gender gender, UserSignupRequestDto userSignupRequestDto) {
-        userService.saveUser(userSignupRequestDto);
+    public String generalRegister(@ModelAttribute Gender gender, @ModelAttribute Purpose purpose, UserSignupRequestDto userSignupRequestDto) {
+        userService.saveUser(gender, purpose, userSignupRequestDto);
         return "redirect:/";
     }
 
+
     @GetMapping("/trainer")
-    public String trainerRegister(){
+    public String trainerRegister(Model model){
+        model.addAttribute("trainer", new TrainerSignupRequestDto());
         return "/user/SignUpT";
+    }
+    @PostMapping("/trainer")
+    public String trainerRegister(@ModelAttribute Gender gender, TrainerSignupRequestDto trainerSignupRequestDto){
+        userService.saveTrainer(gender, trainerSignupRequestDto);
+        return "redirect:/";
     }
 
     @GetMapping("/ceo")
-    public String ceoRegister(){
+    public String ceoRegister(Model model){
+        model.addAttribute("ceo", new CeoSignupRequestDto());
         return "/user/SignUpO";
     }
+    @PostMapping("/ceo")
+    public String ceoRegister(@ModelAttribute Gender gender, CeoSignupRequestDto ceoSignupRequestDto) {
+        userService.saveCeo(gender, ceoSignupRequestDto);
+        return "redirect:/";
+    }
+
+    /**
+     * 마이페이지
+     */
 
     /**
      * 로그인

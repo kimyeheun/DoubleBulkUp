@@ -1,6 +1,6 @@
 package com.doubleBulkUp.review.entity;
 
-import com.doubleBulkUp.User.entity.User;
+import com.doubleBulkUp.user.entity.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

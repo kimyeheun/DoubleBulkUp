@@ -1,4 +1,4 @@
-package com.doubleBulkUp.User.service;
+package com.doubleBulkUp.user.service;
 
 //@Component
 //public class UserValidator implements Validator {

@@ -1,6 +1,5 @@
-package com.doubleBulkUp.User.entity;
+package com.doubleBulkUp.user.entity;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import lombok.Setter;
 
 import javax.persistence.*;

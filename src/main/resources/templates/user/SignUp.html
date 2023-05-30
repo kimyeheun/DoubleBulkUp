@@ -1,114 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" th:href="@{/css/SignUp.css}" />
-  </head>
-  <body style="background-color: #1e1e1e">
-    <div id="goLogin">
-      <b id="already">Already have an account?</b>
-      <button id="loginBtn" onclick="location.href='LogIn.html' ">Login</button>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>General User</title>
+  <link rel="stylesheet" th:href="@{/css/SignUp.css}" />
+</head>
+<body style="background-color: #1e1e1e">
+<div id="goLogin">
+  <b id="already">Already have an account?</b>
+  <button id="loginBtn" th:onclick="|location.href='@{/user/login}'|">Login</button>
+</div>
 
-    <div id="title">Sign Up</div>
-    <form th:action="@{/user/general}" action="/user/general" th:object="${user}" method="post">
-      <div class="register">
-        <b class="info">Create your ID</b>
-        <div class="inputBox">
-          <input th:field="*{userId}" d="newId" name = "userId" placeholder="ID" />
-        </div>
-      </div>
-      <div class="register">
-        <b class="info">Create your password</b>
-        <div class="inputBox">
-          <input th:field="*{password}" id="newPw" name ="password" type="password" placeholder="Password" />
-        </div>
-      </div>
-      <div class="register">
-        <b class="info">Enter your name</b>
-        <div class="inputBox">
-          <input th:field="*{userName}" id="newName" name = "userName" placeholder="Name" />
-        </div>
-      </div>
-      <div class="register">
-        <b class="info">Select your gender</b>
-        <div th:each="type : ${gender}" class="form-check form-check-inline">
-          <input type="radio" th:field="*{gender}" th:value="${type.name()}" class="form-check-input">
-          <label th:for="${#ids.prev('gender')}" th:text="${type.value}"
-                 class="form-check-label">
-            BOOK
-          </label>
-        </div>
-<!--        <div id="btn">-->
-<!--          <input-->
-<!--                  type="radio"-->
-<!--                  name="Male"-->
-<!--                  value="Male"-->
-<!--                  id="maleBtn"-->
-<!--                  checked="true"-->
-<!--          />-->
-<!--          <label for="maleBtn">Male</label>-->
-<!--          <input type="radio" name="Female" value="Female" id="femaleBtn" />-->
-<!--          <label for="femaleBtn">Female</label>-->
-<!--        </div>-->
-      </div>
-      <div class="register">
-        <b class="info">Enter your e-mail</b>
-        <div class="inputBox">
-          <input th:field="*{userEmail}" id="newEmail" name="userEmail" placeholder="E-mail" />
-        </div>
-      </div>
-      <div class="register">
-        <b class="info">Enter your date of birth</b>
-        <div class="inputBox">
-          <input type="date" th:field="*{userBirth}" id="newBd" name = "userBirth" value="2023-06-24" />
-        </div>
-      </div>
-      <div class="register">
-        <b class="info">Enter your phone number</b>
-        <div class="inputBox">
-          <input th:field="*{userPhone}" id="newTel" name = "userPhone" type="tel" placeholder="xxx-xxxx-xxxx" />
-        </div>
-      </div>
-      <div class="register">
-        <b class="info">Enter your address</b>
-        <div class="inputBox">
-          <input th:field="*{userAddress}" id="newAddr" name="userAddress" placeholder="ex) 전라북도 군산시 궁포 2로 20" />
-        </div>
-      </div>
-      <div class="register">
-        <b class="info">Enter your physical information</b>
-        <div class="inputBox">
-          <b class="phInfo">Height : </b>
-          <input th:field="*{userHeight}" class="newHW"  name="userHeight" id="newHeight" placeholder="156" />
-          <b class="unit">cm</b>
-          <b class="phInfo">Weight : </b>
-          <input th:field="*{userWeight}" class="newHW" name="userWeight" id="newWeight" placeholder="44" />
-          <b class="unit">kg</b>
-        </div>
-      </div>
-      <div class="register">
-        <b class="info">Select your purpose</b>
-        <div th:each="p : ${purpose}" id="btn2">
-          <input
-                  th:field="*{purpose}"
-                  th:value="${p.name()}"
-                  type="radio"
-                  name="perposeBtn"
-                  value="diet"
-                  checked="true"
-          />
-          <label
-                  th:for="${#ids.prev('purpose')}"
-                  th:text="${p.value}">DIET</label>
-        </div>
-      </div>
-      <div id="complete">
-        <button id="completeBtn" type="submit">Complete</button>
-      </div>
-    </form>
-  </body>
+<div id="title">Sign Up</div>
+<form th:action="@{/user/general}" action="/user/general" th:object="${user}" method="post">
+  <div class="register">
+    <b class="info">Create your ID</b>
+    <div class="inputBox">
+      <input th:field="*{userId}" id="newId" name = "userId" placeholder="ID" />
+    </div>
+  </div>
+  <div class="register">
+    <b class="info">Create your password</b>
+    <div class="inputBox">
+      <input th:field="*{password}" id="newPw" name ="password" type="password" placeholder="Password" />
+    </div>
+  </div>
+  <div class="register">
+    <b class="info">Enter your name</b>
+    <div class="inputBox">
+      <input th:field="*{userName}" id="newName" name = "userName" placeholder="Name" />
+    </div>
+  </div>
+  <div class="register">
+    <b class="info">Select your gender</b>
+    <div class="btnSet">
+    <div th:each="type : ${gender}" class="form-check form-check-inline" id="btn">
+      <input
+        type="radio"
+        name="genderBtn"
+        th:field="*{gender}"
+        th:value="${type.name()}"
+        class="bb">
+      <label
+        th:for="${#ids.prev('gender')}"
+        th:text="${type.value}">
+        MALE
+        </label>
+    </div>
+    </div>
+  </div>
+  <div class="register">
+    <b class="info">Enter your e-mail</b>
+    <div class="inputBox">
+      <input th:field="*{userEmail}" id="newEmail" name="userEmail" placeholder="E-mail" />
+    </div>
+  </div>
+  <div class="register">
+    <b class="info">Enter your date of birth</b>
+    <div class="inputBox">
+      <input type="date" th:field="*{userBirth}" id="newBd" name = "userBirth" value="2023-06-24" />
+    </div>
+  </div>
+  <div class="register">
+    <b class="info">Enter your phone number</b>
+    <div class="inputBox">
+      <input th:field="*{userPhone}" id="newTel" name = "userPhone" type="tel" placeholder="xxx-xxxx-xxxx" />
+    </div>
+  </div>
+  <div class="register">
+    <b class="info">Enter your address</b>
+    <div class="inputBox">
+      <input th:field="*{userAddress}" id="newAddr" name="userAddress" placeholder="ex) 전라북도 군산시 궁포 2로 20" />
+    </div>
+  </div>
+  <div class="register">
+    <b class="info">Enter your physical information</b>
+    <div class="inputBox">
+      <b class="phInfo">Height : </b>
+      <input th:field="*{userHeight}" class="newHW"  name="userHeight" id="newHeight" placeholder="156" />
+      <b class="unit">cm</b>
+      <b class="phInfo">Weight : </b>
+      <input th:field="*{userWeight}" class="newHW" name="userWeight" id="newWeight" placeholder="44" />
+      <b class="unit">kg</b>
+    </div>
+  </div>
+  <div class="register">
+    <b class="info">Select your purpose</b>
+    <div class="btnSet">
+    <div th:each="p : ${purpose}" id="btn2">
+      <input
+        th:field="*{purpose}"
+        th:value="${p.name()}"
+        type="radio"
+        name="perposeBtn"
+        value="diet"
+        checked="true"
+      />
+      <label
+        th:for="${#ids.prev('purpose')}"
+        th:text="${p.value}">DIET</label>
+    </div>
+    </div>
+  </div>
+  <div id="complete">
+    <button id="completeBtn" type="submit">Complete</button>
+  </div>
+</form>
+</body>
 </html>

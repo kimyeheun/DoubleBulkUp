@@ -1,6 +1,6 @@
-package com.doubleBulkUp.User.repository;
+package com.doubleBulkUp.user.repository;
 
-import com.doubleBulkUp.User.entity.Person;
+import com.doubleBulkUp.user.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -26,6 +26,9 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
+	//todo: devtool 삽입
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
