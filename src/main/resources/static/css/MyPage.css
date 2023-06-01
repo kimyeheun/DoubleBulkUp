@@ -1,0 +1,178 @@
+#upper {
+    position: sticky;
+    top: 0;
+    background-color: #2a2a2a;
+    height: 55px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#icon {
+    display: flex;
+    gap: 10px;
+    margin-right: 10px;
+}
+.upperBtn {
+    border-radius: 10em;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.upperBtn:hover {
+    background-color: rgb(63, 63, 63);
+}
+
+#boxSet {
+    display: flex;
+    width: 100%;
+}
+
+#btnSet {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+.goBtn {
+    padding: 10px 15px;
+    font-size: 20px;
+    width: 150px;
+}
+.goBtn:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+#i1 {
+    width: 36px;
+    margin-top: 10px;
+    filter: brightness(0%) invert(100%);
+}
+#i2 {
+    width: 30px;
+    margin-top: 12px;
+    filter: brightness(0%) invert(100%);
+}
+#i3 {
+    width: 32px;
+    margin-top: 14px;
+    filter: brightness(0%) invert(100%);
+}
+#i4 {
+    width: 32px;
+    margin-top: 12px;
+    filter: brightness(0%) invert(100%);
+}
+#b {
+    margin-top: 100px;
+    color: white;
+}
+#profile {
+    position: relative;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 50px;
+    background-color: #d9d9d9;
+    padding: 20px 15px;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: row;
+}
+#profileImg {
+    width: 100px;
+    height: 100px;
+}
+#profileSet {
+    width: 120px;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#edit {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 550;
+}
+#edit:hover {
+    text-decoration: underline;
+}
+#name {
+    margin-top: 45px;
+    font-size: 30px;
+    font-weight: 600;
+}
+#priSet {
+    margin-left: 25px;
+}
+#email {
+    margin-top: 8px;
+}
+.btnImg {
+    width: 32px;
+    height: 32px;
+}
+.imgB {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+.priBox {
+    background-color: rgb(243, 243, 243);
+    width: 400px;
+    padding: 15px 10px;
+    margin-bottom: 8px;
+    border-radius: 0.5em;
+    display: flex;
+}
+
+.label {
+    font-size: 20px;
+    font-weight: 550;
+    margin-bottom: 10px;
+}
+#bottomBox {
+    display: flex;
+    justify-content: center;
+}
+.interest {
+    margin-left: 100px;
+}
+.cancelBtn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.x {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+b1 {
+    width: 200px;
+}
+#iT {
+    margin-top: 30px;
+}
+b2 {
+    width: 130px;
+    font-size: 17px;
+    font-weight: 600;
+}
