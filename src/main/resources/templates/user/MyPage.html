@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>myPage</title>
+  <link rel="stylesheet" th:href="@{/css/MyPage.css}" />
+</head>
+<body style="background-color: rgba(30, 30, 30, 0.51)">
+<div id="upper">
+  <div id="icon">
+    <div>
+      <button class="upperBtn" type="button">
+        <img
+                id="i4"
+                src="https://cdn-icons-png.flaticon.com/128/69/69524.png"
+        />
+      </button>
+    </div>
+    <div>
+      <button class="upperBtn" type="button">
+        <img
+                id="i1"
+                src="https://cdn-icons-png.flaticon.com/128/7747/7747974.png"
+        />
+      </button>
+    </div>
+    <div>
+      <button class="upperBtn" type="button">
+        <img
+                id="i2"
+                src="https://cdn-icons-png.flaticon.com/128/747/747376.png"
+        />
+      </button>
+    </div>
+    <div>
+      <button class="upperBtn" type="button">
+        <img
+                id="i3"
+                src="https://cdn-icons-png.flaticon.com/128/1827/1827914.png"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+<div id="boxSet">
+  <div id="btnSet">
+    <button class="goBtn">
+      <div class="imgB">
+        <img
+                class="btnImg"
+                src="https://cdn-icons-png.flaticon.com/128/7776/7776763.png"
+        />
+        <b>게시판</b>
+      </div>
+    </button>
+    <button class="goBtn">
+      <div class="imgB">
+        <img
+                class="btnImg"
+                src="https://cdn-icons-png.flaticon.com/128/7744/7744130.png"
+        />
+        <b>이벤트</b>
+      </div>
+    </button>
+    <button class="goBtn">
+      <div class="imgB">
+        <img
+                class="btnImg"
+                src="https://cdn-icons-png.flaticon.com/128/7126/7126749.png"
+        />
+        <b>헬스장</b>
+      </div>
+    </button>
+  </div>
+  <div id="profile">
+    <div id="profileSet">
+      <img
+              id="profileImg"
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135707.png"
+      />
+      <!--      todo : 회원정보 수정 html로 이동-->
+      <button id="edit" >회원정보 수정</button>
+    </div>
+    <div id="priSet">
+      <div id="name" th:text="${user.getUserName()}"></div>
+      <div id="email" th:text="${user.getUserEmail()}"></div>
+    </div>
+  </div>
+</div>
+<div id="bottomBox">
+  <div id="infoSet">
+    <div class="label">회원 정보</div>
+    <div class="priBox">
+      <b2 >이메일</b2>
+      <b3 th:text="${user.getUserEmail()}" >sjcarat624@gmail.com</b3>
+    </div>
+    <div class="priBox">
+      <b2>이름</b2>
+      <b3 th:text="${user.getUserName()}">박솔지</b3>
+    </div>
+    <div class="priBox">
+      <b2>성별</b2>
+      <b3 th:text="${user.getGender()}">여</b3>
+    </div>
+    <div class="priBox">
+      <b2>생일</b2>
+      <b3 th:text="${user.getUserBirth()}">2002-06-24</b3>
+    </div>
+    <div class="priBox">
+      <b2>전화번호</b2>
+      <b3 th:text="${user.getUserPhone()}">010-1234-5678</b3>
+    </div>
+    <div class="priBox">
+      <b2>주소</b2>
+      <b3 th:text="${user.getUserAddress()}">전라북도 군산시 궁포 2로 20</b3>
+    </div>
+    <div class="priBox">
+      <b2>몸무게</b2>
+      <b3 th:text="${user.getUserWeight()}">44</b3>
+    </div>
+    <div class="priBox">
+      <b2>키</b2>
+      <b3 th:text="${user.getUserHeight()}">156</b3>
+    </div>
+  </div>
+  <div id="rightBox">
+    <div class="interest">
+      <div class="label">관심 등록한 헬스장</div>
+      <div class="priBox">
+        <b1>헬스장 이름</b1>
+        <div class="cancelBtn">
+          <button class="x">X</button>
+        </div>
+      </div>
+      <div class="priBox">
+        <b1>헬스장 이름</b1>
+        <div class="cancelBtn">
+          <button class="x">X</button>
+        </div>
+      </div>
+      <div class="priBox">
+        <b1>헬스장 이름</b1>
+        <div class="cancelBtn">
+          <button class="x">X</button>
+        </div>
+      </div>
+      <div class="priBox">
+        <b1>헬스장 이름</b1>
+        <div class="cancelBtn">
+          <button class="x">X</button>
+        </div>
+      </div>
+    </div>
+    <div class="interest" id="iT">
+      <div class="label">관심 등록한 트레이너</div>
+      <div class="priBox">트레이너 이름</div>
+      <div class="priBox">트레이너 이름</div>
+      <div class="priBox">트레이너 이름</div>
+      <div class="priBox">트레이너 이름</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

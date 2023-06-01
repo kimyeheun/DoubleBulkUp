@@ -1,9 +1,20 @@
 package com.doubleBulkUp.user.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
-public class Ceo extends Person{
+@Table(name="Ceo")
+public class Ceo {
+    @Id
+    private String ceoId;
+
+    @MapsId
+    @OneToOne
+    @JoinColumn(name = "ceoId")
+    private Person person;
+
+    @Column(name = "ceoRegistrationNum")
     private String ceoRegistrationNum;
+    @Column(name = "gymName")
     private String gymName;
 }
