@@ -1,17 +1,26 @@
 package com.doubleBulkUp.user.entity;
 
+import com.doubleBulkUp.gym.entity.Gym;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "Trainer")
 public class Trainer{
     @Id
     private String trainerId;
 
-    @MapsId
     @OneToOne
-    @JoinColumn(name = "trainerId")
+    @JoinColumn(name = "trainerId", referencedColumnName = "personId")
     private Person person;
+
+    @ManyToOne
+    @JoinColumn(name = "gymName")
+    private Gym gymName;
 
     @Column(name = "trainerWorkTime")
     private String trainerWorkTime;

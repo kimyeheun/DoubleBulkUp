@@ -44,8 +44,9 @@ public class UserController {
     }
     @PostMapping("/general")
     public String generalRegister(@ModelAttribute Gender gender, @ModelAttribute Purpose purpose, UserSignupRequestDto userSignupRequestDto) {
-        if(userService.savePerson(gender, userSignupRequestDto) && userService.saveUser(purpose, userSignupRequestDto)) //성공하면
-            return "redirect:/user/" + userSignupRequestDto.getUserId();
+        if(userService.saveUserP(gender, userSignupRequestDto))
+            if(userService.saveUser(purpose, userSignupRequestDto)) //성공하면
+                return "redirect:/user/general/" + userSignupRequestDto.getUserId();
         return "redirect:/";
     }
 
@@ -57,7 +58,8 @@ public class UserController {
     }
     @PostMapping("/trainer")
     public String trainerRegister(@ModelAttribute Gender gender, TrainerSignupRequestDto trainerSignupRequestDto){
-        userService.saveTrainer(gender, trainerSignupRequestDto);
+        if(userService.saveTrainerP(gender, trainerSignupRequestDto))
+            return "redirect:/user/trainer/" + trainerSignupRequestDto.getTrainerId();
         return "redirect:/";
     }
 
@@ -68,20 +70,39 @@ public class UserController {
     }
     @PostMapping("/ceo")
     public String ceoRegister(@ModelAttribute Gender gender, CeoSignupRequestDto ceoSignupRequestDto) {
-        userService.saveCeo(gender, ceoSignupRequestDto);
+        if(userService.saveCeoP(gender, ceoSignupRequestDto))
+            return "redirect:/user/ceo/" + ceoSignupRequestDto.getCeoId();
         return "redirect:/";
     }
 
     /**
      * 마이페이지
      */
-    @GetMapping("/{personId}")
+    @GetMapping("/general/{personId}")
     public String myPage(
             @PathVariable String personId,
             Model model
     ) {
         model.addAttribute("user", userService.findUserDetailDtoById(personId));
         return "/user/MyPage";
+    }
+
+    @GetMapping("/trainer/{personId}")
+    public String myTrainerPage(
+            @PathVariable String personId,
+            Model model
+    ) {
+        model.addAttribute("trainer", userService.findTrainerDetailDtoById(personId));
+        return "/user/MyTrainerPage";
+    }
+
+    @GetMapping("/ceo/{personId}")
+    public String myCeoPage(
+            @PathVariable String personId,
+            Model model
+    ) {
+        model.addAttribute("ceo", userService.findCeoDetailDtoById(personId));
+        return "/user/MyCeoPage";
     }
 
     /**
@@ -96,7 +117,7 @@ public class UserController {
     public String userLogin(UserLoginDto userLoginDto) {
         UserType userType = userService.login(userLoginDto);
         if(userType == UserType.User) {
-            System.out.println("this is good!!");
+            System.out.println("this is user!!");
             return "redirect:/user/" + userLoginDto.getUserId();
         }
         else if(userType == UserType.Trainer) {

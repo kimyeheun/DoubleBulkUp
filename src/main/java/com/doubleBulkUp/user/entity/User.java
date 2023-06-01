@@ -13,9 +13,8 @@ public class User {
     @Id
     private String userId;
 
-    @MapsId
     @OneToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "userId", referencedColumnName = "personId")
     private Person person;
 
     @Column(name = "userAddress")

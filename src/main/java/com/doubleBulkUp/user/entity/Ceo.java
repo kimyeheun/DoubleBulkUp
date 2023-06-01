@@ -8,9 +8,8 @@ public class Ceo {
     @Id
     private String ceoId;
 
-    @MapsId
     @OneToOne
-    @JoinColumn(name = "ceoId")
+    @JoinColumn(name = "ceoId", referencedColumnName = "personId")
     private Person person;
 
     @Column(name = "ceoRegistrationNum")

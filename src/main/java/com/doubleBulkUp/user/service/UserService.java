@@ -7,7 +7,6 @@ import com.doubleBulkUp.user.repository.PersonRepository;
 import com.doubleBulkUp.user.repository.TrainerRepository;
 import com.doubleBulkUp.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.id.IdentifierGenerationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,15 +37,9 @@ public class UserService {
      * 회원가입
      */
     // todo:회원가입 person은 되는데 user가 안됨 -> null 값이라고 나옴
-    public boolean savePerson(Gender gender, UserSignupRequestDto userSignupRequestDto) {
-        System.out.println(userSignupRequestDto.getUserId());
-        System.out.println(userSignupRequestDto.getUserBirth());
-        System.out.println(gender);
-        System.out.println(userSignupRequestDto.getUserEmail());
-        String id = userSignupRequestDto.getUserId();
-
+    public boolean saveUserP(Gender gender, UserSignupRequestDto userSignupRequestDto) {
         Person person = new Person();
-        person.setId(id);
+        person.setId(userSignupRequestDto.getUserId());
         person.setUserPassword(userSignupRequestDto.getPassword());
         person.setUserName(userSignupRequestDto.getUserName());
         person.setGender(gender);
@@ -60,7 +53,6 @@ public class UserService {
         personRepository.save(person);
         return personRepository.existsPersonById(userSignupRequestDto.getUserId());
     }
-
     public boolean saveUser(Purpose purpose, UserSignupRequestDto userSignupRequestDto) {
         User user = new User();
         user.setUserId(userSignupRequestDto.getUserId());
@@ -70,11 +62,10 @@ public class UserService {
         user.setUserWeight(userSignupRequestDto.getUserWeight());
 
         userRepository.save(user);
-
         return userRepository.existsByPersonId(userSignupRequestDto.getUserId());
     }
 
-    public void saveTrainer(Gender gender, TrainerSignupRequestDto trainerSignupRequestDto) {
+    public boolean saveTrainerP(Gender gender, TrainerSignupRequestDto trainerSignupRequestDto) {
         Person person = new Person();
         person.setId(trainerSignupRequestDto.getTrainerId());
         person.setUserPassword(trainerSignupRequestDto.getPassword());
@@ -88,9 +79,13 @@ public class UserService {
         person.setUserType(UserType.valueOf("Trainer"));
 
         personRepository.save(person);
+        return personRepository.existsPersonById(trainerSignupRequestDto.getTrainerId());
+    }
+    public void saveTrainer(TrainerSignupRequestDto trainerSignupRequestDto) {
+
     }
 
-    public void saveCeo(Gender gender, CeoSignupRequestDto ceoSignupRequestDto) {
+    public boolean saveCeoP(Gender gender, CeoSignupRequestDto ceoSignupRequestDto) {
         Person person = new Person();
         person.setId(ceoSignupRequestDto.getCeoId());
         person.setUserPassword(ceoSignupRequestDto.getPassword());
@@ -104,6 +99,7 @@ public class UserService {
         person.setUserType(UserType.valueOf("Ceo"));
 
         personRepository.save(person);
+        return personRepository.existsPersonById(ceoSignupRequestDto.getCeoId());
     }
 
     /**
@@ -144,7 +140,7 @@ public class UserService {
     }
 
     /**
-     * 상세 정보 - 마이페이지
+     *  general User 정보 - 마이페이지
      */
     public UserDetailResponseDto findUserDetailDtoById(String userId){
         Person person = findByPersonId(userId);
@@ -162,6 +158,51 @@ public class UserService {
         response.setUserAddress(user.getUserAddress());
 
         //todo: 매핑 관계 - 선호
+//        List<Gym> gyms = new ArrayList<>();
+
+//        response.setGyms();
+
+        return response;
+    }
+
+    /**
+     *  Trainer 정보 - 마이페이지
+     */
+    public TrainerDetailResponseDto findTrainerDetailDtoById(String userId) {
+        Person person = findByPersonId(userId);
+        Trainer trainer = findTrainerByPersonId(userId);
+
+        TrainerDetailResponseDto response = new TrainerDetailResponseDto();
+        response.setId(userId);
+        response.setUserName(person.getUserName());
+        response.setUserBirth(person.getUserBirth());
+        response.setUserEmail(person.getUserEmail());
+        response.setUserPhone(person.getUserPhone());
+        response.setGender(person.getGender());
+        response.setGymName(trainer.getGymName().toString());
+        response.setTrainerWorkTime(trainer.getTrainerWorkTime());
+
+        //todo : 수상 경력, 자격증
+
+        return response;
+    }
+
+    /**
+     *  Ceo 정보 - 마이페이지
+     */
+    public CeoDetailResponseDto findCeoDetailDtoById(String userId){
+        Person person = findByPersonId(userId);
+        Ceo ceo = findCeoByPersonId(userId);
+
+        CeoDetailResponseDto response = new CeoDetailResponseDto();
+        response.setId(userId);
+        response.setUserName(person.getUserName());
+        response.setUserBirth(person.getUserBirth());
+        response.setUserEmail(person.getUserEmail());
+        response.setUserPhone(person.getUserPhone());
+        response.setGender(person.getGender());
+
+        //todo : 트레이너, 이벤트
 
         return response;
     }

@@ -20,6 +20,7 @@ public class GymListResponseDto {
         this.gymPrice = gym.getGymPrice();
         this.gymUsableTime = gym.getGymUsableTime();
         //todo:변경된 부분
+
         this.ceoId = gym.getCeo().toString();
     }
 }
