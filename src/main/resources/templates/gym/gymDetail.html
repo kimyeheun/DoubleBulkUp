@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>selectUserType</title>
+  <link rel="stylesheet" th:href="@{/css/selectType.css}" />
+</head>
+<body >
+<div>
+  <p th:text="${gym.getGymName()}"></p>
+  <p th:text="${gym.getCeoId()}"></p>
+  <p th:text="${gym.getClothes()}"></p>
+  <p th:text="${gym.getFittingRoom()}"></p>
+  <p th:text="${gym.getGymLocation()}"></p>
+  <p th:text="${gym.getGymPeople()}"></p>
+  <p th:text="${gym.getGymPrice()}"></p>
+  <p th:text="${gym.getGymUsableTime()}"></p>
+  <p th:text="${gym.getHowToAttendance()}"></p>
+  <p th:text="${gym.getLockerCnt()}"></p>
+  <p th:text="${gym.getShowerBoothCnt()}"></p>
+</div>
+</body>
+</html>
