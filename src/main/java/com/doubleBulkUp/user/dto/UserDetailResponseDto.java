@@ -1,5 +1,6 @@
 package com.doubleBulkUp.user.dto;
 
+import com.doubleBulkUp.gym.dto.GymBriefResponseDto;
 import com.doubleBulkUp.user.entity.Gender;
 import com.doubleBulkUp.gym.entity.Gym;
 
@@ -23,6 +24,7 @@ public class UserDetailResponseDto {
     private Double userHeight;
     private Double userWeight;
 
-    private List<Gym> gyms;
-    private List<Trainer> trainers;
+    private List<GymBriefResponseDto> gyms;
+    private List<TrainerBriefResponseDto> trainers;
+
 }

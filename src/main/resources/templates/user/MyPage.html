@@ -128,37 +128,22 @@
   <div id="rightBox">
     <div class="interest">
       <div class="label">관심 등록한 헬스장</div>
-      <div class="priBox">
-        <b1>헬스장 이름</b1>
-        <div class="cancelBtn">
-          <button class="x">X</button>
+
+      <th:block th:each="gym : ${user.getGyms()}">
+        <div class="priBox">
+          <b1 th:text="${gym.getGymName()}">헬스장 이름</b1>
+          <div class="cancelBtn">
+            <button class="x">X</button>
+          </div>
         </div>
-      </div>
-      <div class="priBox">
-        <b1>헬스장 이름</b1>
-        <div class="cancelBtn">
-          <button class="x">X</button>
-        </div>
-      </div>
-      <div class="priBox">
-        <b1>헬스장 이름</b1>
-        <div class="cancelBtn">
-          <button class="x">X</button>
-        </div>
-      </div>
-      <div class="priBox">
-        <b1>헬스장 이름</b1>
-        <div class="cancelBtn">
-          <button class="x">X</button>
-        </div>
+      </th:block>
       </div>
     </div>
     <div class="interest" id="iT">
       <div class="label">관심 등록한 트레이너</div>
-      <div class="priBox">트레이너 이름</div>
-      <div class="priBox">트레이너 이름</div>
-      <div class="priBox">트레이너 이름</div>
-      <div class="priBox">트레이너 이름</div>
+      <th:block th:each="trainer : ${user.getTrainers()}">
+        <div th:text="${trainer.getUserName()}" class="priBox">트레이너 이름</div>
+      </th:block>
     </div>
   </div>
 </div>

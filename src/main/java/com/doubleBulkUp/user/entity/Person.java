@@ -2,8 +2,7 @@ package com.doubleBulkUp.user.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -15,6 +14,9 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @Table(name="Person")
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Person implements Serializable {
     @Id
@@ -60,4 +62,5 @@ public class Person implements Serializable {
             , fetch = FetchType.LAZY
     )
     private Ceo ceo;
+
 }

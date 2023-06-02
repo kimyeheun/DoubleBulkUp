@@ -1,22 +1,24 @@
 package com.doubleBulkUp.user.service;
 
+import com.doubleBulkUp.gym.dto.GymBriefResponseDto;
+import com.doubleBulkUp.gym.entity.Gym;
 import com.doubleBulkUp.user.dto.*;
 import com.doubleBulkUp.user.entity.*;
-import com.doubleBulkUp.user.repository.CeoRepository;
-import com.doubleBulkUp.user.repository.PersonRepository;
-import com.doubleBulkUp.user.repository.TrainerRepository;
-import com.doubleBulkUp.user.repository.UserRepository;
+import com.doubleBulkUp.user.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
-@Transactional
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class UserService {
 
@@ -24,6 +26,9 @@ public class UserService {
     private final PersonRepository personRepository;
     private final CeoRepository ceoRepository;
     private final TrainerRepository trainerRepository;
+    private final UserMappingGymRepository userMappingGymRepository;
+    private final UserMappingTrainerRepository userMappingTrainerRepository;
+
 
     /**
      * 사용 가능하면 true
@@ -37,14 +42,14 @@ public class UserService {
      * 회원가입
      */
     // todo:회원가입 person은 되는데 user가 안됨 -> null 값이라고 나옴
-    public boolean saveUserP(Gender gender, UserSignupRequestDto userSignupRequestDto) {
+    public boolean saveUserP(UserSignupRequestDto userSignupRequestDto) {
         Person person = new Person();
         person.setId(userSignupRequestDto.getUserId());
         person.setUserPassword(userSignupRequestDto.getPassword());
         person.setUserName(userSignupRequestDto.getUserName());
-        person.setGender(gender);
+        person.setGender(userSignupRequestDto.getGender());
         person.setUserEmail(userSignupRequestDto.getUserEmail());
-        person.setUserBirth(LocalDate.parse(userSignupRequestDto.getUserBirth()));
+        person.setUserBirth(userSignupRequestDto.getUserBirth());
         person.setUserPhone(userSignupRequestDto.getUserPhone());
 
         person.setUserSignUpTime(LocalDateTime.now());
@@ -53,10 +58,29 @@ public class UserService {
         personRepository.save(person);
         return personRepository.existsPersonById(userSignupRequestDto.getUserId());
     }
-    public boolean saveUser(Purpose purpose, UserSignupRequestDto userSignupRequestDto) {
+
+    public boolean saveCeoP(CeoSignupRequestDto ceoSignupRequestDto) {
+        Person person = new Person();
+        person.setId(ceoSignupRequestDto.getCeoId());
+        person.setUserPassword(ceoSignupRequestDto.getPassword());
+        person.setUserName(ceoSignupRequestDto.getCeoName());
+        person.setGender(ceoSignupRequestDto.getGender());
+        person.setUserEmail(ceoSignupRequestDto.getCeoEmail());
+        person.setUserBirth(ceoSignupRequestDto.getCeoBirth());
+        person.setUserPhone(ceoSignupRequestDto.getCeoPhone());
+
+        person.setUserSignUpTime(LocalDateTime.now());
+        person.setUserType(UserType.valueOf("Ceo"));
+
+        personRepository.save(person);
+        return personRepository.existsPersonById(ceoSignupRequestDto.getCeoId());
+    }
+
+    @Transactional
+    public boolean saveUser(UserSignupRequestDto userSignupRequestDto) {
         User user = new User();
         user.setUserId(userSignupRequestDto.getUserId());
-        user.setPurpose(purpose);
+        user.setPurpose(userSignupRequestDto.getPurpose());
         user.setUserAddress(userSignupRequestDto.getUserAddress());
         user.setUserHeight(userSignupRequestDto.getUserHeight());
         user.setUserWeight(userSignupRequestDto.getUserWeight());
@@ -116,6 +140,12 @@ public class UserService {
         return p.getUserType();
     }
 
+    public UserType getUserType(String personId){
+        Person person = personRepository.findById(personId).orElseThrow(() -> new IllegalArgumentException());
+        return person.getUserType();
+    }
+
+
     /**
      * 아이디로 사람 찾기
      */
@@ -158,8 +188,22 @@ public class UserService {
         response.setUserAddress(user.getUserAddress());
 
         //todo: 매핑 관계 - 선호
-//        List<Gym> gyms = new ArrayList<>();
 
+        response.setGyms(
+            userMappingGymRepository.findByUser(user)
+                    .stream()
+                    .map(UserMappingGym::getGym)
+                    .map(GymBriefResponseDto::new)
+                    .collect(Collectors.toList())
+        );
+
+        response.setTrainers(
+                userMappingTrainerRepository.findByUser(user)
+                        .stream()
+                        .map(UserMappingTrainer::getTrainer)
+                        .map(TrainerBriefResponseDto::new)
+                        .collect(Collectors.toList())
+        );
 //        response.setGyms();
 
         return response;
@@ -194,13 +238,15 @@ public class UserService {
         Person person = findByPersonId(userId);
         Ceo ceo = findCeoByPersonId(userId);
 
-        CeoDetailResponseDto response = new CeoDetailResponseDto();
+        CeoDetailResponseDto response = new CeoDetailResponseDto(ceo, person);
         response.setId(userId);
         response.setUserName(person.getUserName());
         response.setUserBirth(person.getUserBirth());
         response.setUserEmail(person.getUserEmail());
         response.setUserPhone(person.getUserPhone());
         response.setGender(person.getGender());
+        response.setCeoRegistrationNum(ceo.getCeoRegistrationNum());
+        response.setGymName(ceo.getGymName());
 
         //todo : 트레이너, 이벤트
 

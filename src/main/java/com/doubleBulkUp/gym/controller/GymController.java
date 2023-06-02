@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/gym")
@@ -15,8 +16,11 @@ public class GymController {
     private final GymService gymService;
 
     @GetMapping
-    public String gymList(Model model){
-        model.addAttribute("gyms", gymService.findAllGymDto());
+    public String gymList(
+            @RequestParam(name = "event", defaultValue = "false") Boolean event,
+            Model model
+    ){
+        model.addAttribute("gyms", gymService.findGymListDto(event));
         return "gym/gymList";
     }
 

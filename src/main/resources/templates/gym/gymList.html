@@ -8,9 +8,10 @@
   <link rel="stylesheet" th:href="@{/css/selectType.css}" />
 </head>
 <body>
-<div th:each="gym : ${gyms}">
-  <p th:text="${gym.getGymName()}">gymame</p>
-  <p th:text="${gym.getGymName()}">gymame</p>
+<h1>Gyms</h1>
+<div th:each="gym : ${gyms}" style="border: #1e1e1e 1px solid">
+  <a th:text="${gym.getGymName()}" th:href="@{/gym/{id} (id=${gym.getGymName()})}"></a>
+  <p th:text="${gym.getCeoId()}">ceoId</p>
 </div>
 </body>
 </html>

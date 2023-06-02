@@ -14,10 +14,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class GymFacilitiesId implements Serializable {
+public class EventId implements Serializable {
 
     @Column(name = "gymName")
     private String gymName;
-
 
 }

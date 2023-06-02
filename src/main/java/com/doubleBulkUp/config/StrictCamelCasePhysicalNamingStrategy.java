@@ -9,4 +9,10 @@ public class StrictCamelCasePhysicalNamingStrategy extends SpringPhysicalNamingS
     public Identifier toPhysicalColumnName(Identifier name, JdbcEnvironment jdbcEnvironment) {
         return name;
     }
+
+    @Override
+    public Identifier toPhysicalTableName(Identifier name, JdbcEnvironment jdbcEnvironment) {
+        return name;
+    }
+
 }

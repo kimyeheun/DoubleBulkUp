@@ -1,21 +1,23 @@
 package com.doubleBulkUp.gym.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import lombok.Getter;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
-public class Event {
-    @Id
-    private Long eventId;
+public class Event implements Serializable {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Id
+    private String eventName;
+
+    @ManyToOne
+    @JoinColumn(name = "gymName")
     private Gym gym;
 
     private LocalDateTime eventDateTime;
-    private String eventName;
-    private String eventCondition; //참여 조건
-    private String eventDescription;
+    private String eventCondition;
+    private String eventDiscript;
 }

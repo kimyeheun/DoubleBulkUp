@@ -1,15 +1,18 @@
 package com.doubleBulkUp.user.dto;
 
 import com.doubleBulkUp.user.entity.Gender;
+import com.doubleBulkUp.user.entity.Person;
 import com.doubleBulkUp.user.entity.Purpose;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 public class UserSignupRequestDto {
     private String userId;
@@ -17,7 +20,7 @@ public class UserSignupRequestDto {
     private String userName;
     private Gender gender;
     private String userEmail;
-    private String userBirth;
+    private LocalDate userBirth;
     private String userPhone;
     private String userAddress;
     private Double userHeight;

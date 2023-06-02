@@ -22,7 +22,6 @@ sever:
   servlet:
     encoding:
       fore-response: true
-
-
-
-
+logging:
+  level:
+    com.doubleBulkUp: debug

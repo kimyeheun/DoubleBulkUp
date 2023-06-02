@@ -1,16 +1,22 @@
 package com.doubleBulkUp.gym.entity;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
-@Entity
+@Entity @Getter
 public class EEMappingES {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ee_es_id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Id
+    @Column(name = "EEMappingESId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "equipmentName")
     private ExerciseEquipment exerciseEquipment;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "sulpplementName")
     private ExerciseSupplement exerciseSupplement;
 }
