@@ -36,6 +36,8 @@ public class Person implements Serializable {
     private String userEmail;
     @Column(name = "userPhone")
     private String userPhone;
+    @Column(name = "userPicture")
+    private String userPicture;
 
     @Enumerated(EnumType.STRING)
     @Column(name="gender")

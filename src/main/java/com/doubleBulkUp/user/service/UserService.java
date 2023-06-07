@@ -183,6 +183,8 @@ public class UserService {
         response.setUserBirth(person.getUserBirth());
         response.setUserEmail(person.getUserEmail());
         response.setGender(person.getGender());
+        response.setProfile(person.getUserPicture());
+
         response.setUserHeight(user.getUserHeight());
         response.setUserWeight(user.getUserWeight());
         response.setUserAddress(user.getUserAddress());
@@ -204,7 +206,6 @@ public class UserService {
                         .map(TrainerBriefResponseDto::new)
                         .collect(Collectors.toList())
         );
-//        response.setGyms();
 
         return response;
     }

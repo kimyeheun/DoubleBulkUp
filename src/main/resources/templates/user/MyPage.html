@@ -7,8 +7,16 @@
   <title>myPage</title>
   <link rel="stylesheet" th:href="@{/css/MyPage.css}" />
 </head>
-<body style="background-color: rgba(30, 30, 30, 0.51)">
+<body style="background-color: #1e1e1e82">
 <div id="upper">
+  <div id="leftLogo">
+    <div>
+      <button class="upperBtn2" type="button">
+        <!-- todo: Logo.png -->
+        <img id="logo" th:src="@{/img/global/Logo.png}" />
+      </button>
+    </div>
+  </div>
   <div id="icon">
     <div>
       <button class="upperBtn" type="button">
@@ -35,7 +43,7 @@
       </button>
     </div>
     <div>
-      <button class="upperBtn" type="button">
+      <button class="upperBtn" id="listBtn" type="button">
         <img
                 id="i3"
                 src="https://cdn-icons-png.flaticon.com/128/1827/1827914.png"
@@ -78,7 +86,8 @@
     <div id="profileSet">
       <img
               id="profileImg"
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135707.png"
+              th:src="@{/img/user/} + ${user.getProfile()}"
+              style = "border-radius: 50px"
       />
       <!--      todo : 회원정보 수정 html로 이동-->
       <button id="edit" >회원정보 수정</button>
@@ -93,7 +102,7 @@
   <div id="infoSet">
     <div class="label">회원 정보</div>
     <div class="priBox">
-      <b2 >이메일</b2>
+      <b2>이메일</b2>
       <b3 th:text="${user.getUserEmail()}" >sjcarat624@gmail.com</b3>
     </div>
     <div class="priBox">
@@ -128,16 +137,14 @@
   <div id="rightBox">
     <div class="interest">
       <div class="label">관심 등록한 헬스장</div>
-
       <th:block th:each="gym : ${user.getGyms()}">
         <div class="priBox">
           <b1 th:text="${gym.getGymName()}">헬스장 이름</b1>
           <div class="cancelBtn">
-            <button class="x">X</button>
+            <button class="x" >X</button>
           </div>
         </div>
       </th:block>
-      </div>
     </div>
     <div class="interest" id="iT">
       <div class="label">관심 등록한 트레이너</div>
@@ -148,4 +155,26 @@
   </div>
 </div>
 </body>
+
+<script>
+  const li = document.getElementById("btnSet");
+  const $profile = document.getElementById("profile");
+  const $bt = document.getElementById("bottomBox");
+  const $listBtn = document.getElementById("listBtn");
+
+  function toggle() {
+    if (li.style.display !== "none") {
+      $profile.style.opacity = 1;
+      $bt.style.opacity = 1;
+      li.style.display = "none";
+    } else {
+      $profile.style.opacity = 0.4;
+      $bt.style.opacity = 0.4;
+      li.style.opacity = 1;
+      li.style.display = "flex";
+    }
+  }
+  $listBtn.addEventListener("click", toggle);
+</script>
+
 </html>

@@ -2,9 +2,6 @@ package com.doubleBulkUp.user.dto;
 
 import com.doubleBulkUp.gym.dto.GymBriefResponseDto;
 import com.doubleBulkUp.user.entity.Gender;
-import com.doubleBulkUp.gym.entity.Gym;
-
-import com.doubleBulkUp.user.entity.Trainer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +16,7 @@ public class UserDetailResponseDto {
     private String userEmail;
     private String userPhone;
     private Gender gender;
+    private String profile;
 
     private String userAddress;
     private Double userHeight;
