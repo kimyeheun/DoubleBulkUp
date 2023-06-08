@@ -32,7 +32,6 @@ public class UserApiController {
         return Purpose.values();
     }
 
-
     /**
      * 회원가입 - 유저 유형 선택
      */
@@ -46,14 +45,15 @@ public class UserApiController {
         model.addAttribute("user", new UserSignupRequestDto());
         return "/user/SignUp";
     }
-
     @PostMapping("/general")
     public String generalRegister(UserSignupRequestDto userSignupRequestDto) {
-        userService.saveUserP(userSignupRequestDto);
-        log.debug("{}", userSignupRequestDto);
+        if(userService.saveUserP(userSignupRequestDto)) {
+            if(userService.saveUser(userSignupRequestDto)) {
+                return "redirect:/user/" + userSignupRequestDto.getUserId();
+            }
+        }
         return "redirect:/";
     }
-
 
     @GetMapping("/trainer")
     public String trainerRegister(Model model){
@@ -78,8 +78,37 @@ public class UserApiController {
     }
 
     /**
+     * 회원 삭제
+     */
+    @DeleteMapping("/{personId}")
+    public String userDelete(@PathVariable String personId) {
+        if(userService.deletePerson(personId))
+            return "redirect:/";
+        return "redirect:/user/" + personId;
+    }
+
+
+    /**
      * 마이페이지
      */
+    @GetMapping("/{personId}")
+    public String userDetail(Model model, @PathVariable String personId){
+        UserType userType = userService.getUserType(personId);
+
+        if(userType == UserType.CEO){
+            model.addAttribute("ceo", userService.findCeoDetailDtoById(personId));
+            return "user/MyCeoPage";
+        } else if(userType == UserType.Trainer){
+            model.addAttribute("trainer", userService.findTrainerDetailDtoById(personId));
+            return "user/MyTrainerPage";
+        } else if(userType == UserType.User){
+            model.addAttribute("user", userService.findUserDetailDtoById(personId));
+            return "user/MyPage";
+        }
+
+        return "index";
+    }
+
 
     /**
      * 로그인
@@ -105,24 +134,6 @@ public class UserApiController {
             return "redirect:/user/" + userLoginDto.getUserId();
         }
         return "redirect:/user/login";
-    }
-
-    @GetMapping("/{personId}")
-    public String userDetail(Model model, @PathVariable String personId){
-        UserType userType = userService.getUserType(personId);
-
-        if(userType == UserType.CEO){
-            model.addAttribute("ceo", userService.findCeoDetailDtoById(personId));
-            return "user/MyCeoPage";
-        } else if(userType == UserType.Trainer){
-            model.addAttribute("trainer", userService.findTrainerDetailDtoById(personId));
-            return "user/MyTrainerPage";
-        } else if(userType == UserType.User){
-            model.addAttribute("user", userService.findUserDetailDtoById(personId));
-            return "user/MyPage";
-        }
-
-        return "index";
     }
 
 }

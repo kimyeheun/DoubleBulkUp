@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>selectUserType</title>
-  <link rel="stylesheet" th:href="@{/css/selectType.css}" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>selectUserType</title>
+    <link rel="stylesheet" th:href="@{/css/selectType.css}" />
 </head>
 <body>
 <div>
-  <h1 th:text="${gym.getGymName()}"></h1>
-  <image th:src="@{/img/gym/{id}.jpeg (id=${gym.getGymName()})}"></image>
-  <p th:text="${gym.getCeoId()}"></p>
-  <p th:text="${gym.getClothes()}"></p>
-  <p th:text="${gym.getFittingRoom()}"></p>
-  <p th:text="${gym.getGymLocation()}"></p>
-  <p th:text="${gym.getGymPeople()}"></p>
-  <p th:text="${gym.getGymPrice()}"></p>
-  <p th:text="${gym.getGymUsableTime()}"></p>
-  <p th:text="${gym.getHowToAttendance()}"></p>
-  <p th:text="${gym.getLockerCnt()}"></p>
-  <p th:text="${gym.getShowerBoothCnt()}"></p>
+    <h1 th:text="${gym.getGymName()}"></h1>
+    <image th:src="@{/img/gym/{id}.jpeg (id=${gym.getGymName()})}"></image>
+    <p th:text="${gym.getCeoId()}"></p>
+    <p th:text="${gym.getClothes()}"></p>
+    <p th:text="${gym.getFittingRoom()}"></p>
+    <p th:text="${gym.getGymLocation()}"></p>
+    <p th:text="${gym.getGymPeople()}"></p>
+    <p th:text="${gym.getGymPrice()}"></p>
+    <p th:text="${gym.getGymUsableTime()}"></p>
+    <p th:text="${gym.getHowToAttendance()}"></p>
+    <p th:text="${gym.getLockerCnt()}"></p>
+    <p th:text="${gym.getShowerBoothCnt()}"></p>
 
-  <div>
-    <h1>Equipment</h1>
-    <div th:each="ee : ${gym.getExerciseEquipments()}" style="border: #1e1e1e 1px solid">
-      <p th:text="${ee.getEquipmentName()}">name</p>
-      <p th:text="${ee.getExercisePart()}">part</p>
+    <div>
+        <h1>Equipment</h1>
+        <div th:each="ee : ${gym.getExerciseEquipments()}" style="border: #1e1e1e 1px solid">
+            <p th:text="${ee.getEquipmentName()}">name</p>
+            <p th:text="${ee.getExercisePart()}">part</p>
 
-      <div>
-        <h2>Supplement</h2>
-        <div th:each="es: ${ee.getExerciseSupplements()}">
-          <p th:text="${es.getSupplementName()}"></p>
-          <p th:text="${es.getUsePurpose()}"></p>
+            <div>
+                <h2>Supplement</h2>
+                <div th:each="es: ${ee.getExerciseSupplements()}">
+                    <p th:text="${es.getSupplementName()}"></p>
+                    <p th:text="${es.getUsePurpose()}"></p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <div>
-    <h1>Events</h1>
-    <div th:each="event : ${gym.getEvents()}">
-      <h1 th:text="${event.getEventName()}"></h1>
-      <p th:text="${event.getEventDateTime()}"></p>
-      <p th:text="${event.getEventCondition()}"></p>
-      <p th:text="${event.getEventDiscript()}"></p>
+    <div>
+        <h1>Events</h1>
+        <div th:each="event : ${gym.getEvents()}">
+            <h1 th:text="${event.getEventName()}"></h1>
+            <p th:text="${event.getEventDateTime()}"></p>
+            <p th:text="${event.getEventCondition()}"></p>
+            <p th:text="${event.getEventDiscript()}"></p>
+        </div>
     </div>
-  </div>
 
-  <div>
-    <h1>Trainers</h1>
-    <div th:each="trainer : ${gym.getTrainers()}">
-      <p th:text="${trainer.getUserName()}"/>
+    <div>
+        <h1>Trainers</h1>
+        <div th:each="trainer : ${gym.getTrainers()}">
+            <p th:text="${trainer.getUserName()}"/>
+        </div>
     </div>
-  </div>
 </div>
 </body>
 </html>

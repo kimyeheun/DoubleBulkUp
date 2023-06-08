@@ -18,10 +18,10 @@ public class BoardDetailResponseDto {
     private String userName;
 
     public BoardDetailResponseDto(Board board){
-        boardId = board.getBoardId();
+        boardId = board.getBoardNumber();
         boardTitle = board.getBoardTitle();
         boardContent = board.getBoardContent();
         boardLike = board.getBoardLike();
-        userName = board.getUser().getUserId();;
+        userName = board.getUser().getUserId();
     }
 }

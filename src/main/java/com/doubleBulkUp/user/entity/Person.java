@@ -39,6 +39,7 @@ public class Person implements Serializable {
     @Column(name = "userPicture")
     private String userPicture;
 
+
     @Enumerated(EnumType.STRING)
     @Column(name="gender")
     private Gender gender;
@@ -65,4 +66,9 @@ public class Person implements Serializable {
     )
     private Ceo ceo;
 
+
+    @PrePersist
+    public void setUserPicture() {
+        this.userPicture = "Logo.png";
+    }
 }

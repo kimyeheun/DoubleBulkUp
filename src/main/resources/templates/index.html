@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" th:href="@{/css/selectType.css}" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet"th:href="@{/css/MainPage.css}" />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<h1>Home</h1>
-<div>
-    <a th:href="@{/gym}">gymList</a>
-</div>
-<div>
-    <a th:href="@{/user}">user</a>
-</div>
-<div>
-    <a th:href="@{/board}">board</a>
-</div>
+    <div id="upper">
+        <div id="leftLogo">
+            <div>
+                <button
+                        class="upperBtn2"
+                        type="button"
+                        th:onclick="|location.href='@{/}'|">
+                    <img id="logo" th:src="@{/img/global/Logo.png}" />
+                </button>
+            </div>
+        </div>
+        <div id="userBtn">
+            <a th:onclick="|location.href='@{/user/login}'|" id="loginBtn">log in</a>
+            <a th:onclick="|location.href='@{/user/}'|" id="loginBtn">sign up</a>
+        </div>
+    </div>
+    <div id="container">
+        <div class="mainImg">
+            <img id="gymImg" src="https://cdn.pixabay.com/photo/2016/01/08/01/53/gymer-1126999_1280.jpg"/>
+        </div>
+        <div class="mainTxt">
+            <div class="txt1">헬스장, 아직도 직접 찾아보러 다니시나요..?</div>
+            <div class="txt2">내가 찾던 헬스장<br>DoubleBulkUp에서 무료로 찾아보세요!</div>
+            <div class="txt3">헬스장 사장님, 트레이너도 사용 가능</div>
+            <div class="txt4">2023명의 유저 이용중<br>
+                100개의 헬스장 정보<br>
+                200명의 트레이너 정보<br>
+                500개의 후기
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

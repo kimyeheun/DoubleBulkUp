@@ -4,15 +4,88 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>selectUserType</title>
-  <link rel="stylesheet" th:href="@{/css/selectType.css}" />
+  <title>BoardDetail</title>
+  <link rel="stylesheet" th:href="@{/css/Forum.css}" />
 </head>
 <body>
-<div>
-  <h1 th:text="${board.getBoardTitle()}"></h1>
-  <p th:text="${board.getBoardContent()}"></p>
-  <p th:text="${board.getUserName()}"></p>
-  <p th:text="${board.getBoardLike()}"></p>
-</div>
+  <div id="upper">
+    <div id="btnSet">
+      <button class="goBtn">
+        <div class="imgB">
+          <img
+                  class="btnImg"
+                  src="https://cdn-icons-png.flaticon.com/128/7776/7776763.png"
+          />
+          <b>게시판</b>
+        </div>
+      </button>
+      <button class="goBtn">
+        <div class="imgB">
+          <img
+                  class="btnImg"
+                  src="https://cdn-icons-png.flaticon.com/128/7744/7744130.png"
+          />
+          <b>이벤트</b>
+        </div>
+      </button>
+      <button class="goBtn">
+        <div class="imgB">
+          <img
+                  class="btnImg"
+                  src="https://cdn-icons-png.flaticon.com/128/7126/7126749.png"
+          />
+          <b>헬스장</b>
+        </div>
+      </button>
+    </div>
+    <div id="leftLogo">
+      <div>
+        <button class="upperBtn2" type="button">
+          <img id="logo" src="Logo.png" />
+        </button>
+      </div>
+    </div>
+    <div id="icon">
+      <div>
+        <button class="upperBtn" type="button">
+          <img id="i4" src="https://cdn-icons-png.flaticon.com/128/69/69524.png" />
+        </button>
+      </div>
+      <div>
+        <button class="upperBtn" type="button">
+          <img id="i1" src="https://cdn-icons-png.flaticon.com/128/7747/7747974.png" />
+        </button>
+      </div>
+      <div>
+        <button class="upperBtn" type="button">
+          <img id="i2" src="https://cdn-icons-png.flaticon.com/128/747/747376.png" />
+        </button>
+      </div>
+      <div>
+        <button class="upperBtn" id="listBtn" type="button">
+          <img id="i3" src="https://cdn-icons-png.flaticon.com/128/1827/1827914.png" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="container">
+    <div id="infoBox">
+        <div id="postWriteWrap">
+          <div class="postWrite">
+            <div class="title">
+                <h1 th:text="${board.getBoardTitle()}"></h1>
+            </div>
+            <div class="info" th:text="${board.getUserName()}"></div>
+            <div class="cont" th:text="${board.getBoardContent()}"></div>
+            <div th:text="${board.getBoardLike()}"></div>
+          </div>
+        </div>
+        <div class="postBtn">
+          <a th:href="@{/board/update/{id} (id=${board.getBoardId()})}" class="on">수정</a>
+          <a th:href="@{/board}">목록</a>
+        </div>
+    </div>
+  </div>
 </body>
 </html>

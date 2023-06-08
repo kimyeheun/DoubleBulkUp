@@ -8,13 +8,13 @@
   <link rel="stylesheet" th:href="@{/css/SignUp.css}" />
 </head>
 <body style="background-color: #1e1e1e">
-<div id="goLogin">
-  <b id="already">Already have an account?</b>
-  <button id="loginBtn" th:onclick="|location.href='@{/user/login}'|">Login</button>
-</div>
+  <div id="goLogin">
+    <b id="already">Already have an account?</b>
+    <button id="loginBtn" th:onclick="|location.href='@{/user/login}'|">Login</button>
+  </div>
+  <div id="title">Sign Up</div>
 
-<div id="title">Sign Up</div>
-<form th:action="@{/user/general}" action="/user/general" th:object="${user}" method="post">
+  <form th:action="@{/user/general}" th:object="${user}" method="post">
   <div class="register">
     <b class="info">Create your ID</b>
     <div class="inputBox">
@@ -108,5 +108,6 @@
     <button id="completeBtn" type="submit">Complete</button>
   </div>
 </form>
+
 </body>
 </html>

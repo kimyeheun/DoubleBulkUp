@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface BoardRepository extends JpaRepository<Board, Integer> {
     List<Board> findByUser(User user);
+    Boolean existsByUser(User user);
+    List<Board> findByBoardTitleContaining(String keyword);
 }

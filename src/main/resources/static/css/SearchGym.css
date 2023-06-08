@@ -1,0 +1,218 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(30, 30, 30, 0.51)
+}
+
+#upper {
+    position: sticky;
+    top: 0;
+    background-color: #2a2a2a;
+    height: 55px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    z-index: 1;
+}
+
+#leftLogo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.upperBtn2 {
+    border-radius: 10em;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#logo {
+    width: 100px;
+    margin-left: 15px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-start;
+    filter: invert(100%);
+}
+
+#icon {
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+#btnSet {
+    background-color: white;
+    opacity: 0.5;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    padding: 40px 20px;
+    margin: 20px;
+    border-radius: 1em;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1;
+ }
+
+.imgB {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.goBtn {
+    padding: 10px 15px;
+    font-size: 20px;
+    width: 150px;
+    border-radius: 0.5em;
+    /* border: 2px solid; */
+ }
+
+.goBtn:hover {
+    background-color: rgb(255, 255, 255);
+ }
+
+ .btnImg {
+    width: 32px;
+    height: 32px;
+ }
+
+.upperBtn {
+    border-radius: 10em;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.upperBtn:hover {
+    background-color: rgb(63, 63, 63);
+}
+
+#i1 {
+    width: 36px;
+    margin-top: 10px;
+    filter: brightness(0%) invert(100%);
+}
+
+#i2 {
+    width: 30px;
+    margin-top: 12px;
+    filter: brightness(0%) invert(100%);
+}
+
+#i3 {
+    width: 32px;
+    margin-top: 14px;
+    filter: brightness(0%) invert(100%);
+}
+
+#i4 {
+    width: 32px;
+    margin-top: 12px;
+    filter: brightness(0%) invert(100%);
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr 12fr 1fr;
+    grid-template-rows: 100px 6fr;
+    gap: 20px;
+    width: 100%;
+    justify-items: center;
+}
+
+#inputBox {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#SearchBox {
+    width: 600px;
+    height: 30px;
+    border-radius: 30px;
+    font-size: large;
+}
+
+.searchBtn {
+    border-radius: 10em;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.searchBtn:hover {
+    background-color: rgb(63, 63, 63);
+}
+
+#searchImg {
+    width: 32px;
+    margin-top: 12px;
+    filter: brightness(0%) invert(100%);
+}
+
+#infoBox {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    width: 100%;
+    background-color: whitesmoke;
+    border-radius: 30px;
+}
+
+#gymList {
+    display: flex;
+    margin-left: 180px;
+    width: 100%;
+    flex-direction: column;
+}
+
+#gym1 {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+}
+
+#gymImg {
+    width: 300px;
+    height: 200px;
+    
+}
+
+#gymInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 300px
+}
+
+.gymName {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 550;
+    color:blue;
+    text-align: left;
+}
+
+.gymName:hover {
+    color:darkblue;
+}

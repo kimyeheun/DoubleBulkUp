@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forum</title>
+  <title>BoardNew</title>
   <link rel="stylesheet" th:href="@{/css/Forum.css}" />
 </head>
 
@@ -72,57 +72,59 @@
   </div>
 
   <div id="container">
-    <!-- 검색 -->
-    <div id="inputBox">
-      <form action="/board/search" method="GET" role="search">
-        <input type="text" id="SearchBox" name="keyword"/>
-        <button class="searchBtn" type="submit" th:onclick="|location.href='@{/board/search}'|">
-          <img id="searchImg" src="https://cdn-icons-png.flaticon.com/512/71/71403.png" />
-        </button>
-      </form>
-    </div>
-
     <div id="infoBox">
-      <div id="postListWrap">
-        <div class="postList">
-          <div class="top">
-            <div class="num">No</div>
-            <div class="title">제목</div>
-            <div class="writer">글쓴이</div>
-            <div class="date">작성일</div>
-            <div class="like">♥</div>
-          </div>
-          <th:block th:each="board : ${boards}">
-            <div>
-                <div class="num" th:text="${board.getBoardId()}"></div>
+        <form th:action="@{/board/update/{id} (id=${board.getBoardId()})}" th:object="${board}" method="post">
+          <div id="postWriteWrap">
+            <div class="postWrite">
                 <div class="title">
-                  <a th:text="${board.getBoardTitle()}"
-                     th:href="@{/board/{id} (id=${board.getBoardId()})}"></a>
+                    <dl>
+                        <dt>제목</dt>
+                        <dd><input
+                                type="text"
+                                placeholder="제목 입력"
+                                th:field="*{boardTitle}"
+                                th:value="${board.boardTitle}"
+                        ></dd>
+                    </dl>
                 </div>
-                <div class="writer" th:text="${board.getUserName()}">username</div>
-                <div class="date" th:text="${board.getDateTime()}">2023.6.3</div>
-                <div class="like" th:text="${board.getBoardLike()}"></div>
+                <div class="info">
+                    <dl>
+                        <dt>아이디</dt>
+                        <dd><input
+                                type="text"
+                                placeholder="아이디 입력"
+                                readonly
+                                th:field="*{userName}"
+                                th:value="${board.userName}"
+                        ></dd>
+                    </dl>
+                    <dl>
+                        <dt>비밀번호</dt>
+                        <dd><input
+                                type="password"
+                                placeholder="비밀번호 입력"
+                                th:field="*{userPassword}"
+                        ></dd>
+                    </dl>
+                </div>
+                <div class="cont">
+                    <textarea
+                            placeholder="내용 입력"
+                            th:field="*{boardContent}"
+                            th:text="${board.boardContent}"
+                    ></textarea>
+                </div>
             </div>
-          </th:block>
-        </div>
-        <div class="postPage"> <!--복잡하면 이거 빼고 그냥 한 페이지에 다 출력해도 돼-->
-          <a href="#" class="bt First"><<</a>
-          <a href="#" class="bt Prev"><</a>
-          <a href="#" class="num on">1</a>
-          <a href="#" class="num">2</a>
-          <a href="#" class="num">3</a>
-          <a href="#" class="num">4</a>
-          <a href="#" class="num">5</a>
-          <a href="#" class="bt Next">></a>
-          <a href="#" class="bt Last">>></a>
-        </div>
-        <div class="postBtn">
-          <a th:href="@{/board/new}" class="on">등록</a>
-        </div>
-      </div>
+
+            <div class="postBtn">
+              <button class="on" type="submit">수정</button>
+              <a th:href="@{/board}">목록</a>
+              <a th:href="@{/board/delete/{id} (id=${board.getBoardId()})}" class="del">삭제</a>
+            </div>
+          </div>
+        </form>
     </div>
   </div>
   <script type="text/javascript" th:src="@{/css/Toolbar.js}"></script>
 </body>
-
 </html>

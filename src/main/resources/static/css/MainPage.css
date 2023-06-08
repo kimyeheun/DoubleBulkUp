@@ -1,0 +1,212 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: dimgrey;
+}
+
+#upper {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: white;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    z-index: 1;
+}
+
+#leftLogo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#logo {
+    width: 150px;
+    margin-left: 15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.upperBtn2 {
+    border-radius: 10em;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#userBtn {
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 0;
+}
+
+#userBtn a:hover {
+    background-color: #ddd;
+    border-radius: 20;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 10em;
+}
+
+#userBtn a {
+    display: inline-block;
+    cursor: pointer;
+    min-width: 80px;
+    margin-left: 20px;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+#userBtn a:first-child {
+    margin-left: 0;
+}
+
+#icon {
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+#btnSet {
+    background-color: white;
+    opacity: 0.5;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    padding: 40px 20px;
+    margin: 20px;
+    border-radius: 1em;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1;
+ }
+
+.imgB {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.goBtn {
+    padding: 10px 15px;
+    font-size: 20px;
+    width: 150px;
+    border-radius: 0.5em;
+    /* border: 2px solid; */
+ }
+
+.goBtn:hover {
+    background-color: rgb(255, 255, 255);
+ }
+
+ .btnImg {
+    width: 32px;
+    height: 32px;
+ }
+
+.upperBtn {
+    border-radius: 10em;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.upperBtn:hover {
+    background-color: #ddd;
+}
+
+#i1 {
+    width: 36px;
+    margin-top: 10px;
+}
+
+#i2 {
+    width: 30px;
+    margin-top: 12px;
+}
+
+#i3 {
+    width: 32px;
+    margin-top: 14px;
+}
+
+#i4 {
+    width: 32px;
+    margin-top: 12px;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    row-gap: 30px;
+}
+
+.mainImg {
+    grid-column: 1 / 2;
+}
+
+#gymImg {
+    width: 100%;    
+}
+
+.mainTxt {
+    grid-column: 2 / 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 0;
+}
+
+.txt1 {
+    height: 20%;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Nanum Brush Script', cursive;
+}
+
+.txt2 {
+    height: 35%;
+    font-size: 2.5rem;
+    text-align: left;
+    margin-left: 100px;
+    margin-bottom: 50px;
+
+    font-family: 'Dongle', sans-serif;
+}
+
+.txt3 {
+    height: 10%;
+    font-size: 2rem;
+    text-align: left;
+    margin-left: 60px;
+    font-family: 'Dongle', sans-serif;
+}
+
+.txt4 {
+    height: 35%;
+    font-size: 1.8rem;
+    text-align: left;
+    margin-top: 100px;
+    margin-left: 30px;
+    font-family: 'Dongle', sans-serif;
+}

@@ -76,7 +76,11 @@ public class UserService {
         return personRepository.existsPersonById(ceoSignupRequestDto.getCeoId());
     }
 
-    @Transactional
+    public boolean deletePerson(String personId) {
+        personRepository.deleteById(personId);
+        return !personRepository.existsPersonById(personId);
+    }
+
     public boolean saveUser(UserSignupRequestDto userSignupRequestDto) {
         User user = new User();
         user.setUserId(userSignupRequestDto.getUserId());

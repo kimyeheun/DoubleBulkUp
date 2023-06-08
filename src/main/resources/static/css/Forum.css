@@ -1,0 +1,441 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(30, 30, 30, 0.51)
+}
+#i5 {
+    width: 32px;
+    margin-top: 12px;
+}
+#upper {
+    position: sticky;
+    top: 0;
+    background-color: #2a2a2a;
+    height: 55px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    z-index: 1;
+}
+
+#leftLogo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.upperBtn2 {
+    border-radius: 10em;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#logo {
+    width: 100px;
+    margin-left: 15px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-start;
+    filter: invert(100%);
+}
+
+#icon {
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+#btnSet {
+    background-color: white;
+    opacity: 0.5;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    padding: 40px 20px;
+    margin: 20px;
+    border-radius: 1em;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1;
+ }
+
+.imgB {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.goBtn {
+    padding: 10px 15px;
+    font-size: 20px;
+    width: 150px;
+    border-radius: 0.5em;
+    /* border: 2px solid; */
+ }
+
+.goBtn:hover {
+    background-color: rgb(255, 255, 255);
+ }
+
+ .btnImg {
+    width: 32px;
+    height: 32px;
+ }
+
+.upperBtn {
+    border-radius: 10em;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.upperBtn:hover {
+    background-color: rgb(63, 63, 63);
+}
+
+#i1 {
+    width: 36px;
+    margin-top: 10px;
+    filter: brightness(0%) invert(100%);
+}
+
+#i2 {
+    width: 30px;
+    margin-top: 12px;
+    filter: brightness(0%) invert(100%);
+}
+
+#i3 {
+    width: 32px;
+    margin-top: 14px;
+    filter: brightness(0%) invert(100%);
+}
+
+#i4 {
+    width: 32px;
+    margin-top: 12px;
+    filter: brightness(0%) invert(100%);
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr 12fr 1fr;
+    grid-template-rows: 100px 6fr;
+    gap: 20px;
+    width: 100%;
+    justify-items: center;
+}
+
+#inputBox {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#SearchBox {
+    width: 600px;
+    height: 30px;
+    border-radius: 30px;
+    font-size: large;
+}
+
+.searchBtn {
+    border-radius: 10em;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.searchBtn:hover {
+    background-color: rgb(63, 63, 63);
+}
+
+#searchImg {
+    width: 32px;
+    margin-top: 12px;
+    filter: brightness(0%) invert(100%);
+}
+
+#infoBox {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    width: 100%;
+    background-color: whitesmoke;
+    border-radius: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.postBtn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 0;
+}
+
+.postBtn a {
+    display: inline-block;
+    min-width: 80px;
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    font-size: 1.4rem;
+
+}
+
+.postBtn a:first-child {
+    margin-left: 0;
+}
+
+.postBtn a.on {
+    background-color: #000;
+    color: #fff;
+}
+
+.postList {
+    width: 100%;
+    margin-top: 30px;
+    border-top: 1px solid #000;
+}
+
+.postList > div {
+    border-bottom: 1px solid #ddd;
+    font-size: 0;
+}
+
+.postList > div .top {
+    border-bottom: 1px solid #999;
+}
+
+.postList > div:last-child {
+    border-bottom: 1px solid #000;
+}
+
+.postList > div > div {
+    display: inline-block;
+    padding: 15px 0;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.postList > div.top > div {
+    font-weight: 600;
+}
+
+.postList .num {
+    width: 10%;
+}
+
+.postList .title {
+    width: 60%;
+    text-align: left;
+}
+
+.postList .top .title {
+    text-align: center;
+}
+
+.postList .writer {
+    width: 10%;
+}
+
+.postList .date {
+    width: 10%;
+}
+
+.postList .like {
+    width: 10%;
+}
+
+.postPage {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+}
+
+.postPage a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-left: 0;
+    vertical-align: middle;
+    line-height: 100%;
+}
+
+.postPage a.bt {
+    font-size: 1.1rem;
+    padding-top: 5px;
+    letter-spacing: -1px;
+}
+
+.postPage a.num {
+    padding-top: 5px;
+    font-size: 1.2rem;
+}
+
+.postPage a.num.on {
+    border-color: #000;
+    background: #000;
+    color: #fff;
+}
+
+.postPage a:first-child {
+    border-left: 1px solid #ddd;
+}
+
+
+.postView {
+    width: 100%;
+    border-top: 2px solid #000;
+    margin-top: 30px;
+}
+
+.postView .title {
+    padding: 20px 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 2rem;
+}
+
+.postView .info {
+    padding: 15px;
+    border-bottom: 1px solid #999;
+    font-size: 0;
+}
+
+.postView .info dl {
+    position: relative;
+    display: inline-block;
+    padding: 0 20px
+}
+
+.postView .info dl:first-child {
+    padding-left: 0;
+}
+
+.postView .info dl::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 1px;
+    left: 0;
+    width: 1px;
+    height: 13px;
+    background: #ddd;
+}
+
+.postView .info dl:first-child::before {
+    display: none;
+}
+
+
+.postView .info dl dt,
+.postView .info dl dd {
+    display: inline-block;
+    font-size: 1rem;
+}
+
+
+.postView .info dl dd {
+    margin-left: 10px;
+    color: #777;
+}
+
+.postView .cont {
+    padding: 15px;
+    border-bottom: 1px solid #000;
+    line-height: 160%;
+    font-size: 1rem;
+}
+
+
+.postWrite {
+    border-top: 2px solid #000;
+    margin-top: 30px;
+}
+
+.postWrite .title,
+.postWrite .info {
+    padding: 15px;
+}
+
+.postWrite .info {
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px solid #000;
+    font-size: 0;
+}
+
+.postWrite .title dl {
+    font-size: 0;
+}
+
+.postWrite .info dl {
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+}
+
+.postWrite .title dt,
+.postWrite .title dd,
+.postWrite .info dt,
+.postWrite .info dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1rem;
+}
+
+.postWrite .title dt,
+.postWrite .info dt {
+    width: 100px;
+}
+
+.postWrite .title dd {
+    width: 80%;
+}
+
+.postWrite .title input[type="text"],
+.postWrite .info input[type="text"],
+.postWrite .info input[type="password"]
+{
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+
+.postWrite .title input[type="text"] {
+    width: 90%;
+}
+
+.postWrite .cont {
+    border-bottom: 1px solid #000;
+}
+
+.postWrite .cont textarea {
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+}
+
