@@ -4,6 +4,7 @@
   font-size: 15px;
   line-height: 23px;
   color: #e8e5e5;
+  height:50px;
 }
 #loginBtn {
   background-color: #1e1e1e;
@@ -11,6 +12,7 @@
   font-size: 15px;
   border: none;
   cursor: pointer;
+  height:10px;
 }
 
 #goLogin {

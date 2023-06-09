@@ -17,10 +17,9 @@ public class eventController {
 
     @GetMapping
     public String eventList(
-            @RequestParam(name = "event", defaultValue = "false")
             Model model
     ){
-        model.addAttribute("gyms", eventService.findEventListDto());
+        model.addAttribute("events", eventService.findEventListDto());
         return "event/eventList";
     }
 

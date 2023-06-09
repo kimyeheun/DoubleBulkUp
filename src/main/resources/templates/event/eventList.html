@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gymList</title>
-  <link rel="stylesheet" th:href="@{/css/SearchGym.css}" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SearchEvent</title>
+  <link rel="stylesheet" th:href="@{/css/SearchEvent.css}" />
 </head>
 <body>
 <div id="upper">
@@ -102,40 +102,25 @@
   </div>
 </div>
 
-
-  <div id="container">
-    <!--검색-->
-    <div id="inputBox">
-      <form action="/gym/search" method="GET" role="search">
-        <input type="text" id="SearchBox" name="location" />
-        <button class="searchBtn" type="submit" th:onclick="|location.href='@{/gym/search}'|">
-          <img id="searchImg" src="https://cdn-icons-png.flaticon.com/512/71/71403.png"/>
-        </button>
-      </form>
-    </div>
-
-    <div id="infoBox">
-      <div id="gymList">
-
-        <div id="gym1" th:each="gym : ${gyms}">
-          <img id="gymImg" th:src="@{/img/gym/} + ${gym.getGymPicture()}"/>
-          <div id="gymInfo">
-            <a class="gymName"
-                    type="button"
-                    th:text="${gym.getGymName()}"
-                    th:href="@{/gym/{id} (id=${gym.getGymName()})}"></a>
-            <br>
-            <p th:text="${gym.getGymLocation()}">위치: 천안 서북구 불당동</p>
-            <p th:text="${gym.getGymUsableTime()}">영업 시간: 10:00 ~ 23:00</p>
-
-
-          </div>
+<div id="container">
+  <div id="infoBox">
+    <div id="eventList">
+      <th:block th:each="event : ${events}">
+      <div id="event1">
+        <div id="eventInfo">
+          <div class="eventName" th:text="${event.getEventName()}"></div>
+          <div id="innerTxt" class="gymName" >헬스장 이름 : <span th:text="${event.getGym()}"></span></div>
+          <div id="innerTxt" class="eventDate" >종료 일시 : <span th:text="${event.getEventDateTime()}"></span></div>
+          <div id="innerTxt" class="condition" >참여 조건 : <span th:text="${event.getEventCondition()}"></span></div>
+          <div id="innerTxt" class="eventDate">이벤트 내용 : <span th:text="${event.getEventDiscript()}"></span></div>
         </div>
-
       </div>
+      </th:block>
+
+
     </div>
   </div>
+</div>
 <script type="text/javascript" th:src="@{/js/Toolbar.js}"></script>
-
 </body>
 </html>

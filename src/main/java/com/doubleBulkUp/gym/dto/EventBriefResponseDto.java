@@ -1,13 +1,9 @@
 package com.doubleBulkUp.gym.dto;
 
 import com.doubleBulkUp.gym.entity.Event;
-import com.doubleBulkUp.gym.entity.Gym;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Getter

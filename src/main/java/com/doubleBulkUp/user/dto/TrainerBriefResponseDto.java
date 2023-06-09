@@ -22,6 +22,7 @@ public class TrainerBriefResponseDto {
     private String userPhone;
     private String gymName;
     private String trainerWorkTime;
+    private String trainerPicture;
 
     public TrainerBriefResponseDto(Trainer trainer) {
         id = trainer.getPerson().getId();
@@ -32,5 +33,6 @@ public class TrainerBriefResponseDto {
         userPhone = trainer.getPerson().getUserPhone();
         gymName = trainer.getGymName().getGymName();
         trainerWorkTime = trainer.getTrainerWorkTime();
+        trainerPicture = id + ".jpg";
     }
 }

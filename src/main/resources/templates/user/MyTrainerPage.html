@@ -5,6 +5,57 @@
     <title>Title</title>
 </head>
 <body>
+<div id="upper">
+    <div id="leftLogo">
+        <div>
+            <button class="upperBtn2" type="button">
+                <!-- todo: Logo.png -->
+                <img id="logo" th:src="@{/img/global/Logo.png}" />
+            </button>
+        </div>
+    </div>
+    <div id="icon"> <!--home-->
+        <div>
+            <button class="upperBtn" type="button">
+                <img
+                        id="i4"
+                        src="https://cdn-icons-png.flaticon.com/128/69/69524.png"
+                        th:onclick="|location.href='@{/}'|"
+                />
+            </button>
+        </div>
+        <div>
+            <button class="upperBtn" type="button"> <!--나가기-->
+                <img
+                        id="i1"
+                        src="https://cdn-icons-png.flaticon.com/128/7747/7747974.png"
+                        th:onclick="|location.href='@{/}'|"
+                />
+            </button>
+        </div>
+        <div>
+            <button
+                    class="upperBtn"
+                    type="button"
+            > <!--회원페이지-->
+                <img
+                        id="i2"
+                        src="https://cdn-icons-png.flaticon.com/128/747/747376.png"
+                        th:onclick="|location.href='@{/user/} + ${user.getId()} + |}'|"
+                />
+            </button>
+        </div>
+        <div>
+            <button class="upperBtn" id="listBtn" type="button"> <!--리스트-->
+                <img
+                        id="i3"
+                        src="https://cdn-icons-png.flaticon.com/128/1827/1827914.png"
+                />
+            </button>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>

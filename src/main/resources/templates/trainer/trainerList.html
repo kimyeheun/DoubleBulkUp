@@ -8,29 +8,126 @@
     <link rel="stylesheet" th:href="@{/css/SearchTrainer.css}" />
 </head>
 <body>
-
-
-    <div id="container">
-        <div id="inputBox">
-            <input id="SearchBox" value="Angel Gym" />
-            <button class="searchBtn" type="button">
-                <img id="searchImg" src="https://cdn-icons-png.flaticon.com/512/71/71403.png" />
+<div id="upper">
+    <div id="leftLogo">
+        <div>
+            <button class="upperBtn2" type="button">
+                <!-- todo: Logo.png -->
+                <img id="logo" th:src="@{/img/global/Logo.png}" />
             </button>
+        </div>
+    </div>
+    <div id="icon"> <!--home-->
+        <div>
+            <button class="upperBtn" type="button">
+                <img
+                        id="i4"
+                        src="https://cdn-icons-png.flaticon.com/128/69/69524.png"
+                        th:onclick="|location.href='@{/}'|"
+                />
+            </button>
+        </div>
+        <div>
+            <button class="upperBtn" type="button"> <!--나가기-->
+                <img
+                        id="i1"
+                        src="https://cdn-icons-png.flaticon.com/128/7747/7747974.png"
+                        th:onclick="|location.href='@{/}'|"
+                />
+            </button>
+        </div>
+        <div>
+            <button
+                    class="upperBtn"
+                    type="button"
+            > <!--회원페이지-->
+                <img
+                        id="i2"
+                        src="https://cdn-icons-png.flaticon.com/128/747/747376.png"
+                        th:onclick="|location.href='@{/user/} + ${user.getId()} + |}'|"
+                />
+            </button>
+        </div>
+        <div>
+            <button class="upperBtn" id="listBtn" type="button"> <!--리스트-->
+                <img
+                        id="i3"
+                        src="https://cdn-icons-png.flaticon.com/128/1827/1827914.png"
+                />
+            </button>
+        </div>
+    </div>
+</div>
+<div id="boxSet">
+    <div id="btnSet">
+        <button class="goBtn" th:onclick="|location.href='@{/board}'|">
+            <div class="imgB">
+                <img
+                        class="btnImg"
+                        src="https://cdn-icons-png.flaticon.com/128/7776/7776763.png"
+                />
+                <b>게시판</b>
+            </div>
+        </button>
+        <button class="goBtn" th:onclick="|location.href='@{/trainer}'|">
+            <div class="imgB">
+                <img
+                        class="btnImg"
+                        src="https://cdn-icons-png.flaticon.com/512/3490/3490782.png"
+                />
+                <b style="font-size:13pt">트레이너</b>
+            </div>
+        </button>
+        <button class="goBtn" th:onclick="|location.href='@{/gym}'|">
+            <div class="imgB">
+                <img
+                        class="btnImg"
+                        src="https://cdn-icons-png.flaticon.com/128/7126/7126749.png"
+                />
+                <b>헬스장</b>
+            </div>
+        </button>
+        <button class="goBtn" th:onclick="|location.href='@{/event}'|">
+            <div class="imgB">
+                <img
+                        class="btnImg"
+                        src="https://cdn-icons-png.flaticon.com/128/7744/7744130.png"
+                />
+                <b>이벤트</b>
+            </div>
+        </button>
+    </div>
+</div>
+
+
+<div id="container">
+        <div id="inputBox">
+            <form th:action="@{/trainer/search}" method="GET" role="search">
+                <input id="SearchBox" name="keyword" />
+                <button class="searchBtn" type="submit" th:onclick="|location.href='@{/trainer/search}'|">
+                    <img id="searchImg" src="https://cdn-icons-png.flaticon.com/512/71/71403.png" />
+                </button>
+            </form>
         </div>
         <div id="infoBox">
             <div id="trainerList">
-                <div id="trainer1">
-                    <img id="trainerImg"
-                        src="https://img.freepik.com/free-photo/sportive-man-in-black-shirt-closing-his-arm-muscles_114579-17638.jpg?w=1800&t=st=1685723237~exp=1685723837~hmac=397bf2e844f0cbac3448e0a482aa27499f1113646f0b04db1e8adfd405679c48" />
+                <div id="trainer1" th:each="trainer : ${trainers}">
+                    <img id="trainerImg" th:src="@{/img/user/} + ${trainer.getTrainerPicture()}"/>
                     <div id="trainerInfo">
-                        <button class="trainerName" type="button">조한창</button>
+                        <button class="trainerName" type="button"
+                                th:text="${trainer.getUserName()}"
+                                th:onclick="|location.href='@{/trainer/{id} (id=${trainer.getId()})}'|"></button>
                         <br>
-                        <a>천안 서북구 Wave Gym</a>
-                        <a>안녕하세요~ 함께 운동해서 몸짱이 되어봐요</a>
+                        <p>소속 헬스장 이름 : <span  th:text="${trainer.getGymName()}"></span></p>
+                        <p>근무 시간 : <span  th:text="${trainer.getTrainerWorkTime()}"></span></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+<script type="text/javascript" th:src="@{/js/Toolbar.js}"></script>
+
 </body>
+
 </html>

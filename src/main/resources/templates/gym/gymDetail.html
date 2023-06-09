@@ -8,118 +8,128 @@
     <link rel="stylesheet" th:href="@{/css/GymInfo.css}" />
 </head>
 <body>
-    <div >
-        <h1 th:text="${gym.getGymName()}"></h1>
+<div id="upper">
+    <div id="leftLogo">
         <div>
-            <img th:src="@{/img/gym/{id}.jpeg (id=${gym.getGymName()})}"/>
-        </div>
-        <p th:text="${gym.getCeoId()}"></p>
-        <p th:text="${gym.getClothes()}"></p>
-        <p th:text="${gym.getFittingRoom()}"></p>
-        <p th:text="${gym.getGymLocation()}"></p>
-        <p th:text="${gym.getGymPeople()}"></p>
-        <p th:text="${gym.getGymPrice()}"></p>
-        <p th:text="${gym.getGymUsableTime()}"></p>
-        <p th:text="${gym.getHowToAttendance()}"></p>
-        <p th:text="${gym.getLockerCnt()}"></p>
-        <p th:text="${gym.getShowerBoothCnt()}"></p>
-
-        <div>
-            <h1>Equipment</h1>
-            <div th:each="ee : ${gym.getExerciseEquipments()}">
-                <p th:text="${ee.getEquipmentName()}">name</p>
-                <p th:text="${ee.getExercisePart()}">part</p>
-
-                <div>
-                    <h2>Supplement</h2>
-                    <div th:each="es: ${ee.getExerciseSupplements()}">
-                        <p th:text="${es.getSupplementName()}"></p>
-                        <p th:text="${es.getUsePurpose()}"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <h1>Events</h1>
-            <div th:each="event : ${gym.getEvents()}">
-                <h1 th:text="${event.getEventName()}"></h1>
-                <p th:text="${event.getEventDateTime()}"></p>
-                <p th:text="${event.getEventCondition()}"></p>
-                <p th:text="${event.getEventDiscript()}"></p>
-            </div>
-        </div>
-
-        <div>
-            <h1>Trainers</h1>
-            <div th:each="trainer : ${gym.getTrainers()}">
-                <p th:text="${trainer.getUserName()}"/>
-            </div>
+            <a class="upperBtn" type="button" th:href="@{/gym}">
+                <img id="goBack" src="https://cdn-icons-png.flaticon.com/512/594/594298.png" />
+            </a>
         </div>
     </div>
+    <div id="icon"> <!--home-->
+        <div>
+            <button class="upperBtn" type="button">
+                <img
+                        id="i4"
+                        src="https://cdn-icons-png.flaticon.com/128/69/69524.png"
+                        th:onclick="|location.href='@{/}'|"
+                />
+            </button>
+        </div>
+        <div>
+            <button class="upperBtn" type="button"> <!--나가기-->
+                <img
+                        id="i1"
+                        src="https://cdn-icons-png.flaticon.com/128/7747/7747974.png"
+                        th:onclick="|location.href='@{/}'|"
+                />
+            </button>
+        </div>
+        <div>
+            <button
+                    class="upperBtn"
+                    type="button"
+            > <!--회원페이지-->
+                <img
+                        id="i2"
+                        src="https://cdn-icons-png.flaticon.com/128/747/747376.png"
+                        th:onclick="|location.href='@{/user/} + ${user.getId()} + |}'|"
+                />
+            </button>
+        </div>
+        <div>
+            <button class="upperBtn" id="listBtn" type="button"> <!--리스트-->
+                <img
+                        id="i3"
+                        src="https://cdn-icons-png.flaticon.com/128/1827/1827914.png"
+                />
+            </button>
+        </div>
+    </div>
+</div>
+<div id="boxSet">
+    <div id="btnSet">
+        <button class="goBtn" th:onclick="|location.href='@{/board}'|">
+            <div class="imgB">
+                <img
+                        class="btnImg"
+                        src="https://cdn-icons-png.flaticon.com/128/7776/7776763.png"
+                />
+                <b>게시판</b>
+            </div>
+        </button>
+        <button class="goBtn" th:onclick="|location.href='@{/trainer}'|">
+            <div class="imgB">
+                <img
+                        class="btnImg"
+                        src="https://cdn-icons-png.flaticon.com/512/3490/3490782.png"
+                />
+                <b style="font-size:13pt">트레이너</b>
+            </div>
+        </button>
+        <button class="goBtn" th:onclick="|location.href='@{/gym}'|">
+            <div class="imgB">
+                <img
+                        class="btnImg"
+                        src="https://cdn-icons-png.flaticon.com/128/7126/7126749.png"
+                />
+                <b>헬스장</b>
+            </div>
+        </button>
+        <button class="goBtn" th:onclick="|location.href='@{/event}'|">
+            <div class="imgB">
+                <img
+                        class="btnImg"
+                        src="https://cdn-icons-png.flaticon.com/128/7744/7744130.png"
+                />
+                <b>이벤트</b>
+            </div>
+        </button>
+    </div>
+</div>
 
 
-<!--    <div id="container">-->
-<!--        <div class="gymImg">-->
-<!--            <img th:src="@{/img/gym/{id}.jpeg (id=${gym.getGymName()})}"/>-->
-<!--        </div>-->
-<!--        <div id="gymText" class="name" th:text="${gym.getGymName()}">천안 서북구 Wave Gym</div>-->
-<!--        <div id="gymText" class="location" th:text="${gym.getGymLocation()}">천안 서북구 불당동 38-92길(6층)</div>-->
-<!--        <div id="gymText" class="capacity" th:text="${gym.getGymPeople()}">수용인원: 100명 </div>-->
-<!--        <div id="gymText" class="runningTime" th:text="${gym.getGymUsableTime()}">운영시간: 09:00 ~ 23:00</div>-->
-<!--        <div id="gymText" class="gymCEO">사장 : <span th:text="${gym.getCeoId()}"></span></div>-->
-<!--        <div id="gymText" class="index">PRICE</div>-->
-<!--        <div class="gymInfo">-->
-<!--            <div id="gymText" class="price" th:text="${gym.getGymPrice()}">1개월 10만원</div>-->
-<!--        </div>-->
+<div id="container">
+    <div class="gymImg">
+        <img id="image" th:src="@{/img/gym/{id}.jpeg (id=${gym.getGymName()})}"/>
+    </div>
+    <div id="gymText" class="name" th:text="${gym.getGymName()}"></div>
+    <div id="gymText" class="location" th:text="${gym.getGymLocation()}"></div>
+    <div id="gymText" class="capacity" th:text="${gym.getGymPeople()}"></div>
+    <div id="gymText" class="runningTime" th:text="${gym.getGymUsableTime()}"></div>
+    <div id="gymText" class="gymCEO">사장 : <span th:text="${gym.getCeoId()}"></span></div>
+    <div id="gymText" class="index">PRICE</div>
+    <div class="gymInfo">
+        <div id="gymText" class="price">1개월 : <span th:text="${gym.getGymPrice()}"></span></div>
+    </div>
 
-<!--        <div id="gymText" class="index">보유 기구</div>-->
-<!--        <div class="gymInfo" th:each="ee : ${gym.getExerciseEquipments()}">-->
-<!--            <p id="gymText" class="machine" th:text="${ee.getEquipmentName()}">name</p>-->
-<!--            <p id="gymText" class="machine" th:text="${ee.getExercisePart()}">part</p>-->
+    <div id="gymText" class="index">보유 기구</div>
+    <div class="gymInfo" th:each="ee : ${gym.getExerciseEquipments()}">
+        <div id="gymText" class="machine" th:text="${ee.getEquipmentName()}"></div>
+        <div id="gymText" class="supplement" th:each="es: ${ee.getExerciseSupplements()}">
+            <div th:text="${es.getSupplementName()}"></div>
+        </div>
+    </div>
+    <div id="gymText" class="index">이벤트</div>
+    <div class="gymInfo" th:each="event : ${gym.getEvents()}">
+        <div id="gymText" class="event" th:text="${event.getEventName()}"></div>
+    </div>
+    <div id="gymText" class="index">트레이너</div>
+    <div class="gymInfo" th:each="trainer : ${gym.getTrainers()}">
+        <div id="gymText" class="trainer" th:text="${trainer.getUserName()}"></div>
+    </div>
+    <script type="text/javascript" th:src="@{/js/Toolbar.js}"></script>
+</div>
 
-<!--            <div id="gymText" class="index">보조 기구</div>-->
-<!--            <div class="gymInfo" th:each="es: ${ee.getExerciseSupplements()}">-->
-<!--                <p id="gymText" class="machine" th:text="${es.getSupplementName()}"></p>-->
-<!--                <p id="gymText" class="machine" th:text="${es.getUsePurpose()}"></p>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div>-->
-<!--            <div id="gymText" class="index">이벤트</div>-->
-<!--            <div class="gymInfo" th:each="event : ${gym.getEvents()}">-->
-<!--                <h1 th:text="${event.getEventName()}"></h1>-->
-<!--                <p id="gymText" th:text="${event.getEventDateTime()}"></p>-->
-<!--                <p id="gymText" th:text="${event.getEventCondition()}"></p>-->
-<!--                <p id="gymText" th:text="${event.getEventDiscript()}"></p>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div>-->
-<!--            <div id="gymText" class="index">트레이너</div>-->
-<!--            <div class="gymInfo" th:each="trainer : ${gym.getTrainers()}">-->
-<!--                <p id="gymText" th:text="${trainer.getUserName()}"/>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div id="gymText" class="index">편의 시설</div>-->
-<!--        <div class="gymInfo">-->
-<!--            <div id="gymText" class="smallIdx">샤워 부스-->
-<!--                <div class="shower"><span th:text="${gym.getShowerBoothCnt()}"></span>개</div>-->
-<!--            </div>-->
-<!--            <div id="gymText" class="smallIdx">탈의실-->
-<!--                <div id="gymText" class="fittingRoom"><span th:text="${gym.getFittingRoom()}"></span>개</div>-->
-<!--            </div>-->
-<!--            <div id="gymText" class="smallIdx">회원복-->
-<!--                <div id="gymText" class="clothes"><span th:text="${gym.getClothes()}"></span>벌</div>-->
-<!--            </div>-->
-<!--            <div id="gymText" class="smallIdx">라커룸-->
-<!--                <div id="gymText" class="lockerCnt"><span th:text="${gym.getLockerCnt()}"></span>개</div>-->
-<!--            </div>-->
-<!--            <div id="gymText" class="smallIdx">출석 방법-->
-<!--                <div id="gymText" class="lockerCnt" th:text="${gym.getHowToAttendance()}">Self-Service</div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 </body>
 </html>

@@ -198,7 +198,7 @@ body {
     cursor: pointer;
 }
 b1 {
-    width: 300px;
+    width: 200px;
 }
 #iT {
     margin-top: 30px;
@@ -207,28 +207,4 @@ b2 {
     width: 130px;
     font-size: 17px;
     font-weight: 600;
-}
-
-.contentBox {
-    width: 450px;
-    height: 150px;
-    overflow-y: auto;
-    margin-bottom: 15px;
-    background-color: rgb(183, 183, 183);
-    padding: 10px 10px;
-}
-
-.contentBox::-webkit-scrollbar {
-    width: 10px; /* 스크롤바의 너비 */
-}
-
-.contentBox::-webkit-scrollbar-thumb {
-    height: 30%; /* 스크롤바의 길이 */
-    background: #585858; /* 스크롤바의 색상 */
-
-    border-radius: 10px;
-}
-
-.contentBox::-webkit-scrollbar-track {
-    background: rgb(255, 255, 255); /*스크롤바 뒷 배경 색상*/
 }

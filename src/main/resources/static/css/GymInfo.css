@@ -99,6 +99,11 @@ body {
     filter: brightness(0%) invert(100%);
 }
 
+#i5 {
+    width: 32px;
+    margin-top: 12px;
+}
+
 .upperBtn {
     border-radius: 10em;
     width: 50px;
@@ -127,7 +132,9 @@ body {
 }
 
 #image {
-    width: 100%;
+    width: 30%;
+    margin-left:35%;
+    margin-top: 30px;
 }
 
 #gymText {
@@ -180,13 +187,31 @@ body {
     margin-bottom: 20px;
 }
 
-.machine {
+.machine, .event, .trainer {
     font-size: 1.5rem;
     color: blue;
     background-color: lemonchiffon;
     text-align: center;
     border-radius: 10em;
-    margin-bottom: 20px;
+    margin-top: 20px
+}
+
+.supplement {
+    font-size: 1rem;
+    color: darkblue;
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: 10em;
+    margin-top: 5px;
+}
+
+.part {
+    font-size: 1rem;
+    color: darkblue;
+    background-color: gainsboro;
+    text-align: center;
+    border-radius: 10em;
+    margin-top: 5px;
 }
 
 .smallIdx {

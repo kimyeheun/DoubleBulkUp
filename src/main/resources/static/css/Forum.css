@@ -438,4 +438,31 @@ a {
     border: 0;
     resize: vertical;
 }
+.on{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 0;
+    display: inline-block;
+    min-width: 80px;
+    margin-left: 10px;
+    padding: 10px 30px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    cursor:pointer;
+}
+#wContent{
+    font-size:13px;
+    font-weight:550;
+}
 
+#dContent{
+    font-size:13px;
+    font-weight:550;
+}
+
+#lContent{
+    font-size:17px;
+    font-weight:550;
+}

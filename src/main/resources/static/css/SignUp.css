@@ -143,3 +143,10 @@ b3 {
   font-weight: bold;
   background-color: #9e9e9e;
 }
+.btnSet{
+    width:500px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+}

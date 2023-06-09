@@ -11,63 +11,96 @@
 
 <body>
   <div id="upper">
+    <div id="leftLogo">
+      <div>
+        <button class="upperBtn2" type="button">
+          <!-- todo: Logo.png -->
+          <img id="logo" th:src="@{/img/global/Logo.png}" />
+        </button>
+      </div>
+    </div>
+    <div id="icon"> <!--home-->
+      <div>
+        <button class="upperBtn" type="button">
+          <img
+                  id="i4"
+                  src="https://cdn-icons-png.flaticon.com/128/69/69524.png"
+                  th:onclick="|location.href='@{/}'|"
+          />
+        </button>
+      </div>
+      <div>
+        <button class="upperBtn" type="button"> <!--나가기-->
+          <img
+                  id="i1"
+                  src="https://cdn-icons-png.flaticon.com/128/7747/7747974.png"
+                  th:onclick="|location.href='@{/}'|"
+          />
+        </button>
+      </div>
+      <div>
+        <button
+                class="upperBtn"
+                type="button"
+        > <!--회원페이지-->
+          <img
+                  id="i2"
+                  src="https://cdn-icons-png.flaticon.com/128/747/747376.png"
+                  th:onclick="|location.href='@{/user/} + ${user.getId()} + |}'|"
+          />
+        </button>
+      </div>
+      <div>
+        <button class="upperBtn" id="listBtn" type="button"> <!--리스트-->
+          <img
+                  id="i3"
+                  src="https://cdn-icons-png.flaticon.com/128/1827/1827914.png"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="boxSet">
     <div id="btnSet">
-      <button class="goBtn">
+      <button class="goBtn" th:onclick="|location.href='@{/board}'|">
         <div class="imgB">
           <img
-            class="btnImg"
-            src="https://cdn-icons-png.flaticon.com/128/7776/7776763.png"
+                  class="btnImg"
+                  src="https://cdn-icons-png.flaticon.com/128/7776/7776763.png"
           />
           <b>게시판</b>
         </div>
       </button>
-      <button class="goBtn">
+      <button class="goBtn" th:onclick="|location.href='@{/trainer}'|">
         <div class="imgB">
           <img
-            class="btnImg"
-            src="https://cdn-icons-png.flaticon.com/128/7744/7744130.png"
+                  class="btnImg"
+                  src="https://cdn-icons-png.flaticon.com/512/3490/3490782.png"
+          />
+          <b style="font-size:13pt">트레이너</b>
+        </div>
+      </button>
+      <button class="goBtn" th:onclick="|location.href='@{/gym}'|">
+        <div class="imgB">
+          <img
+                  class="btnImg"
+                  src="https://cdn-icons-png.flaticon.com/128/7126/7126749.png"
+          />
+          <b>헬스장</b>
+        </div>
+
+
+      </button>
+
+      <button class="goBtn" th:onclick="|location.href='@{/event}'|">
+        <div class="imgB">
+          <img
+                  class="btnImg"
+                  src="https://cdn-icons-png.flaticon.com/128/7744/7744130.png"
           />
           <b>이벤트</b>
         </div>
       </button>
-      <button class="goBtn">
-        <div class="imgB">
-          <img
-            class="btnImg"
-            src="https://cdn-icons-png.flaticon.com/128/7126/7126749.png"
-          />
-          <b>헬스장</b>
-        </div>
-      </button>
-    </div>
-    <div id="leftLogo">
-      <div>
-        <button class="upperBtn2" type="button">
-          <img id="logo" src="Logo.png" />
-        </button>
-      </div>
-    </div>
-    <div id="icon">
-      <div>
-        <button class="upperBtn" type="button">
-          <img id="i4" src="https://cdn-icons-png.flaticon.com/128/69/69524.png" />
-        </button>
-      </div>
-      <div>
-        <button class="upperBtn" type="button">
-          <img id="i1" src="https://cdn-icons-png.flaticon.com/128/7747/7747974.png" />
-        </button>
-      </div>
-      <div>
-        <button class="upperBtn" type="button">
-          <img id="i2" src="https://cdn-icons-png.flaticon.com/128/747/747376.png" />
-        </button>
-      </div>
-      <div>
-        <button class="upperBtn" id="listBtn" type="button">
-          <img id="i3" src="https://cdn-icons-png.flaticon.com/128/1827/1827914.png" />
-        </button>
-      </div>
     </div>
   </div>
 
@@ -99,9 +132,9 @@
                   <a th:text="${board.getBoardTitle()}"
                      th:href="@{/board/{id} (id=${board.getBoardId()})}"></a>
                 </div>
-                <div class="writer" th:text="${board.getUserName()}">username</div>
-                <div class="date" th:text="${board.getDateTime()}">2023.6.3</div>
-                <div class="like" th:text="${board.getBoardLike()}"></div>
+              <div class="writer" id="wContent" th:text="${board.getUserName()}">username</div>
+              <div class="date" id="dContent" th:text="${board.getDateTime()}">2023.6.3</div>
+              <div class="like" id="lContent" th:text="${board.getBoardLike()}"></div>
             </div>
           </th:block>
         </div>
@@ -122,6 +155,7 @@
       </div>
     </div>
   </div>
+
   <script type="text/javascript" th:src="@{/js/Toolbar.js}"></script>
 </body>
 

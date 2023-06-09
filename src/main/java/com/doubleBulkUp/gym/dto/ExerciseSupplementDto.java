@@ -15,7 +15,6 @@ public class ExerciseSupplementDto {
     private String usePurpose;
 
     public ExerciseSupplementDto(ExerciseSupplement es){
-        this.supplementName = es.getSupplementName();
         this.supplementName = es.getUsePurpose();
     }
 }

@@ -23,7 +23,7 @@
         <img
                 id="i4"
                 src="https://cdn-icons-png.flaticon.com/128/69/69524.png"
-                th:onclick="|location.href='@{/} + ${user.getId()} + |}'|"
+                th:onclick="|location.href='@{/}'|"
         />
       </button>
     </div>
@@ -58,10 +58,9 @@
     </div>
   </div>
 </div>
-
 <div id="boxSet">
   <div id="btnSet">
-    <button class="goBtn" th:href="@{/board/{id} (id=${user.getId()})}">
+    <button class="goBtn" th:onclick="|location.href='@{/board}'|">
       <div class="imgB">
         <img
                 class="btnImg"
@@ -70,22 +69,34 @@
         <b>게시판</b>
       </div>
     </button>
-    <button class="goBtn">
+    <button class="goBtn" th:onclick="|location.href='@{/trainer}'|">
       <div class="imgB">
         <img
                 class="btnImg"
-                src="https://cdn-icons-png.flaticon.com/128/7744/7744130.png"
+                src="https://cdn-icons-png.flaticon.com/512/3490/3490782.png"
         />
-        <b>이벤트</b>
+        <b style="font-size:13pt">트레이너</b>
       </div>
     </button>
-    <button class="goBtn">
+    <button class="goBtn" th:onclick="|location.href='@{/gym}'|">
       <div class="imgB">
         <img
                 class="btnImg"
                 src="https://cdn-icons-png.flaticon.com/128/7126/7126749.png"
         />
         <b>헬스장</b>
+      </div>
+
+
+    </button>
+
+    <button class="goBtn" th:onclick="|location.href='@{/event}'|">
+      <div class="imgB">
+        <img
+                class="btnImg"
+                src="https://cdn-icons-png.flaticon.com/128/7744/7744130.png"
+        />
+        <b>이벤트</b>
       </div>
     </button>
   </div>
@@ -97,7 +108,7 @@
               style = "border-radius: 50px"
       />
       <!--      todo : 회원정보 수정 html로 이동-->
-      <a id="edit" th:href="@{/user/update/{id} (id=${user.getId()})}">회원정보 수정</a>
+      <a id="edit" th:href="@{/user/update/{id} (id=${user.getId()})}" >회원정보 수정</a>
 
     </div>
     <div id="priSet">
@@ -106,7 +117,6 @@
     </div>
   </div>
 </div>
-
 
 <div id="bottomBox">
   <div id="infoSet">
