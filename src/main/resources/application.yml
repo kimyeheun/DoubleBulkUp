@@ -12,6 +12,7 @@ spring:
     open-in-view: false
     database: mysql
     hibernate:
+      format_sql: true
       naming:
         physical-strategy: com.doubleBulkUp.config.StrictCamelCasePhysicalNamingStrategy
   mvc:
@@ -25,3 +26,8 @@ sever:
 logging:
   level:
     com.doubleBulkUp: debug
+    org:
+      hibernate:
+        type:
+        descriptor:
+          sql: trace

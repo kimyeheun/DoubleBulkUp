@@ -58,6 +58,7 @@
     </div>
   </div>
 </div>
+
 <div id="boxSet">
   <div id="btnSet">
     <button class="goBtn" th:href="@{/board/{id} (id=${user.getId()})}">
@@ -96,7 +97,7 @@
               style = "border-radius: 50px"
       />
       <!--      todo : 회원정보 수정 html로 이동-->
-      <button id="edit" >회원정보 수정</button>
+      <a id="edit" th:href="@{/user/update/{id} (id=${user.getId()})}">회원정보 수정</a>
 
     </div>
     <div id="priSet">
@@ -105,6 +106,8 @@
     </div>
   </div>
 </div>
+
+
 <div id="bottomBox">
   <div id="infoSet">
     <div class="label">회원 정보</div>
@@ -144,6 +147,7 @@
   <div id="rightBox">
     <div class="interest">
       <div class="label">관심 등록한 헬스장</div>
+      <div class="contentBox">
       <th:block th:each="gym : ${user.getGyms()}">
         <div class="priBox">
           <b1 th:text="${gym.getGymName()}">헬스장 이름</b1>
@@ -152,12 +156,20 @@
           </div>
         </div>
       </th:block>
+      </div>
     </div>
     <div class="interest" id="iT">
       <div class="label">관심 등록한 트레이너</div>
+      <div class="contentBox">
       <th:block th:each="trainer : ${user.getTrainers()}">
-        <div th:text="${trainer.getUserName()}" class="priBox">트레이너 이름</div>
+        <div class="priBox">
+          <b1 th:text="${trainer.getUserName()}">트레이너 이름</b1>
+          <div class="cancelBtn">
+            <button class="x" >X</button>
+          </div>
+        </div>
       </th:block>
+      </div>
     </div>
   </div>
 </div>
@@ -182,6 +194,21 @@
     }
   }
   $listBtn.addEventListener("click", toggle);
+
+  const $x = document.querySelector(".x");
+
+  function delTodo() {
+    const btn = event.target;
+    const priBox = btn.parentNode.parentNode;
+    priBox.remove();
+  }
+
+  const xButtons = document.querySelectorAll(".x");
+  xButtons.forEach((button) => {
+    button.addEventListener("click", delTodo);
+  });
+
+  $x.addEventListener("click", delTodo);
 </script>
 
 </html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyPageUpdate</title>
+  <link rel="stylesheet" th:href="@{/css/MyPage.css}" />
+</head>
+<body style="background-color: #1e1e1e82">
+<div id="upper">
+  <div id="leftLogo">
+    <div>
+      <button class="upperBtn2" type="button">
+        <!-- todo: Logo.png -->
+        <img id="logo" th:src="@{/img/global/Logo.png}" />
+      </button>
+    </div>
+  </div>
+  <div id="icon"> <!--home-->
+    <div>
+      <button class="upperBtn" type="button">
+        <img
+                id="i4"
+                src="https://cdn-icons-png.flaticon.com/128/69/69524.png"
+                th:onclick="|location.href='@{/} + ${user.getId()} + |}'|"
+        />
+      </button>
+    </div>
+    <div>
+      <button class="upperBtn" type="button"> <!--나가기-->
+        <img
+                id="i1"
+                src="https://cdn-icons-png.flaticon.com/128/7747/7747974.png"
+                th:onclick="|location.href='@{/}'|"
+        />
+      </button>
+    </div>
+    <div>
+      <button
+              class="upperBtn"
+              type="button"
+      > <!--회원페이지-->
+        <img
+                id="i2"
+                src="https://cdn-icons-png.flaticon.com/128/747/747376.png"
+                th:onclick="|location.href='@{/user/} + ${user.getId()} + |}'|"
+        />
+      </button>
+    </div>
+    <div>
+      <button class="upperBtn" id="listBtn" type="button"> <!--리스트-->
+        <img
+                id="i3"
+                src="https://cdn-icons-png.flaticon.com/128/1827/1827914.png"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+<div id="profile">
+    <div id="profileSet">
+      <img
+              id="profileImg"
+              th:src="@{/img/user/} + ${user.getUserPicture()}"
+              style = "border-radius: 50px"
+      />
+    </div>
+    <div id="priSet">
+      <div id="name" th:text="${user.getUserName()}"></div>
+      <div id="email" th:text="${user.getId()}"></div>
+    </div>
+</div>
+
+<div id="bottomBox">
+  <div id="infoSet">
+  <form th:action="@{/user/update}" th:object="${user}" method="post">
+      <div style="display: none"> <input type="text" th:field="*{id}" th:value="${user.getId()}"></div>
+      <div class="label">회원 정보</div>
+      <div class="priBox">
+        <b2>이메일</b2>
+        <input type="text" th:field="*{userEmail}" th:value="${user.getUserEmail()}"/>
+      </div>
+      <div class="priBox">
+        <b2>이름</b2>
+        <input type="text" th:field="*{userName}" th:value="${user.getUserName()}"/>
+      </div>
+      <div class="priBox">
+        <b2>성별</b2>
+        <div th:each="type : ${gender}" class="form-check form-check-inline" id="btn">
+          <input
+                  type="radio"
+                  name="genderBtn"
+                  th:field="*{gender}"
+                  th:value="${type.name()}"
+                  class="bb">
+          <label
+                  th:for="${#ids.prev('gender')}"
+                  th:text="${type.value}">
+            MALE
+          </label>
+        </div>
+      </div>
+      <div class="priBox">
+        <b2>생일</b2>
+        <input type="date" th:field="*{userBirth}" th:value="${user.getUserBirth()}"></input>
+      </div>
+      <div class="priBox">
+        <b2>전화번호</b2>
+        <input type="text" th:field="*{userPhone}" th:value="${user.getUserPhone()}"></input>
+      </div>
+      <div class="priBox">
+        <b2>주소</b2>
+        <input type="text" th:field="*{userAddress}" th:value="${user.getUserAddress()}"></input>
+      </div>
+      <div class="priBox">
+        <b2>몸무게</b2>
+        <input type="number" inputmode="decimal" th:field="*{userWeight}" th:value="${user.getUserWeight()}"></input>
+      </div>
+      <div class="priBox">
+        <b2>키</b2>
+        <input type="number" inputmode="decimal" th:field="*{userHeight}" th:value="${user.getUserHeight()}"></input>
+      </div>
+      <div id="comEdit">
+        <a class="comBtn" id="cancel" th:href="@{/user/{id} (id=${user.getId()})}" >cancel</a>
+        <button class="comBtn" id="saveBtn" type="submit">저장</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

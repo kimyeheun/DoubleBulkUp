@@ -24,5 +24,4 @@ public class UserDetailResponseDto {
 
     private List<GymBriefResponseDto> gyms;
     private List<TrainerBriefResponseDto> trainers;
-
 }

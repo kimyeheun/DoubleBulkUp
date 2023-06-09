@@ -1,9 +1,6 @@
 package com.doubleBulkUp.user.controller;
 
-import com.doubleBulkUp.user.dto.CeoSignupRequestDto;
-import com.doubleBulkUp.user.dto.TrainerSignupRequestDto;
-import com.doubleBulkUp.user.dto.UserLoginDto;
-import com.doubleBulkUp.user.dto.UserSignupRequestDto;
+import com.doubleBulkUp.user.dto.*;
 import com.doubleBulkUp.user.entity.Gender;
 import com.doubleBulkUp.user.entity.Purpose;
 import com.doubleBulkUp.user.entity.UserType;
@@ -87,6 +84,32 @@ public class UserController {
         return "redirect:/user/" + personId;
     }
 
+    /**
+     * 회원 수정
+     */
+    @GetMapping("/update/{personId}")
+    public String userUpdate(
+            @PathVariable String personId,
+            Model model
+    ) {
+        UserUpdateResponseDto result = userService.updateUserSet(personId);
+        System.out.println("result.getUserName() = " + result.getUserName());
+        System.out.println(result.getId());
+        model.addAttribute("user", userService.updateUserSet(personId));
+        return "/user/MyPageUpdate";
+    }
+
+    @PostMapping("/update")
+    public String userUpdate(
+            UserUpdateResponseDto userUpdateResponseDto
+    ){
+        String personId = userUpdateResponseDto.getId();
+        if(userService.userUpdate(personId, userUpdateResponseDto)) {
+            return "redirect:/user/" + personId;
+        }
+        System.out.println("personId"+personId);
+        return "redirect:/user/update/" + personId;
+    }
 
     /**
      * 마이페이지

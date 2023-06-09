@@ -110,4 +110,20 @@
 </form>
 
 </body>
+<script>
+  const $x = document.querySelector(".x");
+
+  function delTodo() {
+    const btn = event.target;
+    const priBox = btn.parentNode.parentNode;
+    priBox.remove();
+  }
+
+  const xButtons = document.querySelectorAll(".x");
+  xButtons.forEach((button) => {
+    button.addEventListener("click", delTodo);
+  });
+
+  $x.addEventListener("click", delTodo);
+</script>
 </html>

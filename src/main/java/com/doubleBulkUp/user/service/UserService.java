@@ -1,7 +1,6 @@
 package com.doubleBulkUp.user.service;
 
 import com.doubleBulkUp.gym.dto.GymBriefResponseDto;
-import com.doubleBulkUp.gym.entity.Gym;
 import com.doubleBulkUp.user.dto.*;
 import com.doubleBulkUp.user.entity.*;
 import com.doubleBulkUp.user.repository.*;
@@ -9,10 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -28,7 +24,6 @@ public class UserService {
     private final TrainerRepository trainerRepository;
     private final UserMappingGymRepository userMappingGymRepository;
     private final UserMappingTrainerRepository userMappingTrainerRepository;
-
 
     /**
      * 사용 가능하면 true
@@ -91,6 +86,48 @@ public class UserService {
 
         userRepository.save(user);
         return userRepository.existsByPersonId(userSignupRequestDto.getUserId());
+    }
+
+    public boolean userUpdate(String personId, UserUpdateResponseDto userUpdateResponseDto) {
+        System.out.println("Id"+ personId);
+        System.out.println("userUpdateDto = " + userUpdateResponseDto.getUserName());
+
+        Person person = personRepository.findById(personId).get();
+        User user = userRepository.findById(personId).get();
+
+        person.setUserName(userUpdateResponseDto.getUserName());
+        person.setUserBirth(userUpdateResponseDto.getUserBirth());
+        person.setUserEmail(userUpdateResponseDto.getUserEmail());
+        person.setUserPhone(userUpdateResponseDto.getUserPhone());
+        person.setGender(userUpdateResponseDto.getGender());
+
+        user.setUserAddress(userUpdateResponseDto.getUserAddress());
+        user.setUserWeight(userUpdateResponseDto.getUserWeight());
+        user.setUserHeight(userUpdateResponseDto.getUserHeight());
+
+        userRepository.save(user);
+        personRepository.save(person);
+
+        return true;
+    }
+
+    public UserUpdateResponseDto updateUserSet(String personId) {
+        Person person = personRepository.findById(personId).get();
+        User user = userRepository.findById(personId).get();
+        UserUpdateResponseDto userUpdateResponseDto = new UserUpdateResponseDto();
+
+        userUpdateResponseDto.setId(personId);
+        userUpdateResponseDto.setUserPicture(person.getUserPicture());
+        userUpdateResponseDto.setUserName(person.getUserName());
+        userUpdateResponseDto.setUserBirth(person.getUserBirth());
+        userUpdateResponseDto.setUserEmail(person.getUserEmail());
+        userUpdateResponseDto.setUserPhone(person.getUserPhone());
+        userUpdateResponseDto.setGender(person.getGender());
+
+        userUpdateResponseDto.setUserAddress(user.getUserAddress());
+        userUpdateResponseDto.setUserHeight(user.getUserHeight());
+        userUpdateResponseDto.setUserWeight(user.getUserWeight());
+        return userUpdateResponseDto;
     }
 
     public boolean saveTrainerP(Gender gender, TrainerSignupRequestDto trainerSignupRequestDto) {

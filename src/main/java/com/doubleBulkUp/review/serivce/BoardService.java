@@ -67,7 +67,6 @@ public class BoardService {
     }
 
     public BoardNewDto updateBoardSet(Integer boardId) {
-        System.out.println(boardId);
         return boardRepository.findById(boardId)
                 .map(BoardNewDto::new)
                 .orElseThrow(() -> new IllegalArgumentException());

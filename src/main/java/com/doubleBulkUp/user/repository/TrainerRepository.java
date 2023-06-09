@@ -9,4 +9,5 @@ import java.util.List;
 public interface TrainerRepository extends JpaRepository<Trainer, String> {
 
     List<Trainer> findByGymName(Gym gymName);
+    List<Trainer> findByGymNameContaining(String keyword);
 }
