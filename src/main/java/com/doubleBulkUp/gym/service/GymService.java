@@ -1,14 +1,13 @@
 package com.doubleBulkUp.gym.service;
 
+import com.doubleBulkUp.gym.dto.*;
+import com.doubleBulkUp.gym.entity.*;
+import com.doubleBulkUp.gym.repository.*;
 import com.doubleBulkUp.user.dto.TrainerBriefResponseDto;
 import com.doubleBulkUp.user.entity.Ceo;
 import com.doubleBulkUp.user.repository.TrainerRepository;
 import com.doubleBulkUp.user.service.UserService;
-import com.doubleBulkUp.gym.dto.*;
-import com.doubleBulkUp.gym.entity.*;
-import com.doubleBulkUp.gym.repository.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,18 +32,14 @@ public class GymService {
     private final UserService userService;
 
     public List<GymBriefResponseDto> findGymListDto(Boolean queryEvent){
-
         List<Gym> findAllGym = gymRepository.findAll();
-
         if(!queryEvent){
             return gymRepository.findAll()
                     .stream()
                     .map(GymBriefResponseDto::new)
                     .collect(Collectors.toList());
         }
-
         List<GymBriefResponseDto> gyms = new ArrayList<>();
-
         for (Gym gym : findAllGym) {
             GymBriefResponseDto gymResponse = new GymBriefResponseDto(gym);
             if(eventRepository.existsEventByEventDateTimeAfterAndGym(LocalDateTime.now(), gym))
@@ -53,7 +48,12 @@ public class GymService {
         return gyms;
     }
 
-
+    public List<GymBriefResponseDto> search(String location) {
+        return gymRepository.findByGymLocationContaining(location)
+                .stream()
+                .map(GymBriefResponseDto::new)
+                .collect(Collectors.toList());
+    }
 
     @Transactional
     public void save(CreateGymRequestDto request){

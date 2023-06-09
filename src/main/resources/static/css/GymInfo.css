@@ -144,9 +144,24 @@ body {
     margin-top: 10px;
 }
 
+.capacity {
+    font-size: 1.7rem;
+    margin-top: 10px
+}
+
+.runningTime {
+    font-size: 1.7rem;
+    margin-top: 10px
+}
+
+.gymCEO {
+    font-size: 1.2rem;
+    margin-top: 10px
+}
+
 .index {
     font-size: 3rem;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 20px;
     text-align: center;
     color: lightsalmon;
@@ -168,4 +183,25 @@ body {
 .machine {
     font-size: 1.5rem;
     color: blue;
+    background-color: lemonchiffon;
+    text-align: center;
+    border-radius: 10em;
+    margin-bottom: 20px;
+}
+
+.smallIdx {
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    color:deepskyblue;
+}
+
+.smallIdx div {
+    color: black;
+    background-color: lemonchiffon;
+    border-radius: 10em;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 1.5rem;
 }

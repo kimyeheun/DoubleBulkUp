@@ -4,14 +4,42 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>selectUserType</title>
-  <link rel="stylesheet" th:href="@{/css/selectType.css}" />
+  <title>gymList</title>
+  <link rel="stylesheet" th:href="@{/css/SearchGym.css}" />
 </head>
 <body>
-<h1>Gyms</h1>
-<div th:each="gym : ${gyms}" style="border: #1e1e1e 1px solid">
-  <a th:text="${gym.getGymName()}" th:href="@{/gym/{id} (id=${gym.getGymName()})}"></a>
-  <p th:text="${gym.getCeoId()}">ceoId</p>
-</div>
+
+
+  <div id="container">
+    <!--검색-->
+    <div id="inputBox">
+      <form action="/gym/search" method="GET" role="search">
+        <input type="text" id="SearchBox" name="location" />
+        <button class="searchBtn" type="submit" th:onclick="|location.href='@{/gym/search}'|">
+          <img id="searchImg" src="https://cdn-icons-png.flaticon.com/512/71/71403.png"/>
+        </button>
+      </form>
+    </div>
+
+    <div id="infoBox">
+      <div id="gymList">
+
+        <div id="gym1" th:each="gym : ${gyms}">
+          <img id="gymImg" th:src="@{/img/gym/} + ${gym.getGymPicture()}"/>
+          <div id="gymInfo">
+            <a class="gymName"
+                    type="button"
+                    th:text="${gym.getGymName()}"
+                    th:href="@{/gym/{id} (id=${gym.getGymName()})}"></a>
+            <br>
+            <a th:text="${gym.getGymLocation()}">위치: 천안 서북구 불당동</a>
+            <a th:text="${gym.getGymUsableTime()}">영업 시간: 10:00 ~ 23:00</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

@@ -25,7 +25,6 @@ public class BoardController {
     }
     @GetMapping("/search")
     public String search(@RequestParam(value = "keyword") String keyword, Model model) {
-        System.out.println("keyword" + keyword);
         model.addAttribute("boards", boardService.search(keyword));
         return "board/boardList";
     }

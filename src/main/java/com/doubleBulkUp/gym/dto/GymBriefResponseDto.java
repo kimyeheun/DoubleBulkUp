@@ -12,6 +12,7 @@ public class GymBriefResponseDto {
     private Long gymPrice;
     private String gymUsableTime;
     private String ceoId;
+    private String gymPicture;
 
     public GymBriefResponseDto(Gym gym){
         this.gymName = gym.getGymName();
@@ -20,5 +21,6 @@ public class GymBriefResponseDto {
         this.gymPrice = gym.getGymPrice();
         this.gymUsableTime = gym.getGymUsableTime();
         this.ceoId = gym.getCeo().getCeoId();
+        this.gymPicture = gym.getGymPicture();
     }
 }

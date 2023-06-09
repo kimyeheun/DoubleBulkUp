@@ -27,6 +27,9 @@ public class Gym implements Serializable {
     @Column(name = "gymUseableTime")
     private String gymUsableTime;
 
+    @Column(name="gymPicture")
+    private String gymPicture;
+
     @JoinColumn(name = "ceoId")
     @ManyToOne(fetch = FetchType.LAZY)
     private Ceo ceo;

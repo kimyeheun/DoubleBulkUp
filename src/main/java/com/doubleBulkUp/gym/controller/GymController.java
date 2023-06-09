@@ -24,6 +24,17 @@ public class GymController {
         return "gym/gymList";
     }
 
+    /**
+     * gym 검색 - 위치 기반
+     */
+    @GetMapping("/search")
+    public String search(
+            @RequestParam(value="location") String location, Model model
+    ){
+        model.addAttribute("gyms", gymService.search(location));
+        return "gym/gymList";
+    }
+
     @GetMapping("/{gymId}")
     public String gym(
             @PathVariable String gymId,
@@ -32,4 +43,5 @@ public class GymController {
         model.addAttribute("gym", gymService.findGymDetailDtoById(gymId));
         return "gym/gymDetail";
     }
+
 }

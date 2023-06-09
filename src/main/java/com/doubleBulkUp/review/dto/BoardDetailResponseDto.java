@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,6 +18,7 @@ public class BoardDetailResponseDto {
     private String boardContent;
     private Integer boardLike;
     private String userName;
+    private LocalDateTime createdDate;
 
     public BoardDetailResponseDto(Board board){
         boardId = board.getBoardNumber();
@@ -23,5 +26,6 @@ public class BoardDetailResponseDto {
         boardContent = board.getBoardContent();
         boardLike = board.getBoardLike();
         userName = board.getUser().getUserId();
+        createdDate = board.getCreatedDate();
     }
 }
