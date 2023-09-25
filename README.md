@@ -19,6 +19,9 @@
 + 송승헌
 + 황보성우
 
+## 💾 **DB 구조**
+<img src="src/main/resources/static/img/DB.png">
+
 ## 🔧 **개발도구**
 <div>
 <img src="https://img.shields.io/badge/intellijidea-000000?style=flat&logo=intellijidea&logoColor=white"/>
