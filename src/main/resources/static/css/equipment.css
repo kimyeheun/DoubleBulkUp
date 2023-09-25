@@ -1,0 +1,196 @@
+.eqp {
+    width: 200px;
+    height: 200px;
+    padding: 15px;
+}
+#cart {
+    background-color: white;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    overflow: scroll;
+    width: 200px;
+    height: 500px;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    display: grid;
+    text-align: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 80px;
+    border-radius: 0.5em;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+#innerBox {
+    display: flex;
+    flex-direction: column;
+}
+#container {
+    background-color: white;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    padding: 15px;
+    width: 600px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-radius: 1em;
+}
+#box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 200px;
+    gap: 30px;
+}
+#info {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#upper {
+    position: sticky;
+    top: 0;
+    background-color: #2a2a2a;
+    height: 55px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    z-index: 2;
+}
+body {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
+}
+#leftLogo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#icon {
+    display: flex;
+    gap: 10px;
+    margin-right: 10px;
+    width: 100%;
+    justify-content: flex-end;
+}
+.upperBtn {
+    border-radius: 10em;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.upperBtn2 {
+    border-radius: 10em;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.upperBtn:hover {
+    background-color: rgb(63, 63, 63);
+}
+
+#boxSet {
+    display: flex;
+    width: 100%;
+}
+
+#btnSet {
+    background-color: white;
+    opacity: 0.5;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    padding: 40px 20px;
+    margin: 20px;
+    border-radius: 1em;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1;
+}
+
+.goBtn {
+    padding: 10px 15px;
+    font-size: 20px;
+    width: 150px;
+    border-radius: 0.5em;
+    /* border: 2px solid; */
+}
+.goBtn:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+#logo {
+    width: 100px;
+    margin-left: 15px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-start;
+    filter: invert(100%);
+}
+
+#i1 {
+    width: 36px;
+    margin-top: 10px;
+    filter: brightness(0%) invert(100%);
+}
+#i2 {
+    width: 30px;
+    margin-top: 12px;
+    filter: brightness(0%) invert(100%);
+}
+#i3 {
+    width: 32px;
+    margin-top: 14px;
+    filter: brightness(0%) invert(100%);
+}
+#i4 {
+    width: 32px;
+    margin-top: 12px;
+    filter: brightness(0%) invert(100%);
+}
+#b {
+    margin-top: 100px;
+    color: white;
+}
+.btnImg {
+    width: 32px;
+    height: 32px;
+}
+.imgB {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+#btnZone {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    right: 20px;
+    top: 630px;
+}
+#save {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: rgb(234, 234, 234);
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}

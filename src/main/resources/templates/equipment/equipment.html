@@ -137,7 +137,7 @@
     </div>
     <div id="box">
       <div id="innerBox">
-        <div id="info">Select the equipments in your gym</div>
+        <div id="info">Select the equipments in <span th:text="${equipment.getGymName()}"></span></div>
         <div id="container"></div>
       </div>
     </div>
@@ -146,7 +146,7 @@
     <input th:field="*{listName}" id="textContent">
     <button type="submit" id="submit"></button>
   </form>
+  <script th:src="@{/js/equipment.js}"></script>
 
   </body>
-<script th:src="@{/js/equipment.js}"></script>
 </html>

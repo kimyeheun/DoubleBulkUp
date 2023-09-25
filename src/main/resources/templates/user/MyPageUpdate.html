@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -86,10 +86,7 @@
                 />
                 <b>헬스장</b>
             </div>
-
-
         </button>
-
         <button class="goBtn" th:onclick="|location.href='@{/event}'|">
             <div class="imgB">
                 <img
@@ -99,22 +96,6 @@
                 <b>이벤트</b>
             </div>
         </button>
-    </div>
-    <div id="profile">
-        <div id="profileSet">
-            <img
-                    id="profileImg"
-                    th:src="@{/img/user/} + ${user.getProfile()}"
-                    style = "border-radius: 50px"
-            />
-            <!--      todo : 회원정보 수정 html로 이동-->
-            <a id="edit" th:href="@{/user/update/{id} (id=${user.getId()})}" >회원정보 수정</a>
-
-        </div>
-        <div id="priSet">
-            <div id="name" th:text="${user.getUserName()}"></div>
-            <div id="email" th:text="${user.getId()}"></div>
-        </div>
     </div>
 </div>
 
@@ -181,8 +162,8 @@
         <b2>키</b2>
         <input type="number" inputmode="decimal" th:field="*{userHeight}" th:value="${user.getUserHeight()}"></input>
       </div>
-      <div id="comEdit">
-        <a class="comBtn" id="cancel" th:href="@{/user/{id} (id=${user.getId()})}" >cancel</a>
+      <div id="comEdit" style="margin-bottom: 20px">
+        <a class="comBtn" id="cancel" th:href="@{/user/{id} (id=${user.getId()})}" >취소</a>
         <button class="comBtn" id="saveBtn" type="submit">저장</button>
       </div>
     </form>
